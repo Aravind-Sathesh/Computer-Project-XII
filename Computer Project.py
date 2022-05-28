@@ -23,9 +23,6 @@ rating = DoubleVar()
 
 
 
-def review() :
-    pass
-
 def thankyou() :
     askyesno(title='Thankyou',message='Hope you had a wonderful time')
 
