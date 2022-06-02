@@ -84,11 +84,12 @@ film_button3 = Radiobutton(window, activebackground='#FFFFFF', activeforeground=
     'ComicSans', '25'), text='Film3', variable=film_var, value='Film3')
 rating_bar = Scale(window, variable=rating, orient=HORIZONTAL, bd=3,
                    font=('Arial', 20), from_=0, to=10, length=400)
-rate_button = Button(window, text='Rate us', command=review,
+rate_button = Button(window, text='Rate us', command=thankyou,
                      width=10, height=2, font=('Arial', 15))
 exit_button = Button(window, text='Exit', width=10,
                      height=2, font=('Arial', 15))
-
+register_button = Button(
+    window, text='Proceed to booking', font=('Comic Sans', 25))
 
 name_label.place(x=30, y=150)
 welcome_label.place(x=400, y=0)
@@ -109,32 +110,6 @@ rate_button.place(x=910, y=797)
 exit_button.place(x=1410, y=795)
 
 window.mainloop()
-
-number_people_button_1 = Radiobutton(window, activebackground='#D71B1B', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='1', variable=people_var, value=1)
-number_people_button_2 = Radiobutton(window, activebackground='#D71B1B', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='2', variable=people_var, value=2)
-number_people_button_3 = Radiobutton(window, activebackground='#D71B1B', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='3', variable=people_var, value=3)
-number_people_button_4 = Radiobutton(window, activebackground='#D71B1B', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='4', variable=people_var, value=4)
-number_people_button_5 = Radiobutton(window, activebackground='#D71B1B', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='5', variable=people_var, value=5)
-number_people_button_5plus = Radiobutton(window, activebackground='#D71B1B', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='5+', variable=people_var, value='a', command=ask_number_people)
-film_button1 = Radiobutton(window, activebackground='#D71B1B', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='Film1', variable=film_var, value='Film1')
-film_button2 = Radiobutton(window, activebackground='#D71B1B', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='Film2', variable=film_var, value='Film2')
-film_button3 = Radiobutton(window, activebackground='#D71B1B', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='Film3', variable=film_var, value='Film3')
-rating_bar = Scale(window, variable=rating, orient=HORIZONTAL,
-                   font=('Arial', 25), from_=0, to=5, length=400)
-rate_button = Button(window, text='Rate_us', command=thankyou,
-                     width=30, height=4, font=('Arial', 10))
-register_button = Button(
-    window, text='Proceed to booking', font=('Comic Sans', 25))
-
 
 name_label.place(x=30, y=150)
 
