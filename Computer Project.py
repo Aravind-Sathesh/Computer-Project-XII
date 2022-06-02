@@ -21,6 +21,10 @@ film_var = StringVar()
 rating = DoubleVar()
 
 
+def closewindow():
+    window.destroy()
+
+
 def review():
     pass
 
@@ -75,7 +79,7 @@ rating_bar = Scale(window, variable=rating, orient=HORIZONTAL, bd=3,
                    font=('Arial', 20), from_=0, to=10, length=400)
 rate_button = Button(window, text='Rate us', command=thankyou,
                      width=10, height=2, font=('Arial', 15))
-exit_button = Button(window, text='Exit', width=10,
+exit_button = Button(window, text='Exit', width=10, command=closewindow,
                      height=2, font=('Arial', 15))
 register_button = Button(
     window, text='Proceed to booking', font=('Comic Sans', 25))
