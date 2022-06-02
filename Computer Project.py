@@ -1,9 +1,9 @@
 # Computer Science Project
 # Movie Theatre
 
+from ctypes import alignment
 from pydoc import text
 from tkinter import *
-import tkinter
 from tkinter.messagebox import askyesno
 
 # with open('Films.txt','a+') as file :
@@ -32,7 +32,7 @@ def ask_number_people():
     window1 = Toplevel(window)
     window1.geometry('250x200')
     window1.resizable(False, False)
-    label_ask = Button(window1, text='Please enter the number of people',
+    label_ask = Button(window1, text='Please enter the number of people', alignment=CENTER,
                        width=26, height=3, font=('Arial', 10))
     label_ask.place(x=15, y=0)
     askbox = Entry(window1, background='white',
@@ -137,7 +137,7 @@ register_button = Button(
 
 
 name_label.place(x=30, y=150)
-welcome_label.place(x=450, y=0)
+
 number_people_label.place(x=500, y=150)
 film_label.place(x=1050, y=150)
 input_box.place(x=30, y=250)
