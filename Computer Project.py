@@ -4,6 +4,7 @@
 from ctypes import alignment
 from pydoc import text
 from tkinter import *
+import tkinter
 from tkinter.messagebox import askyesno
 
 # with open('Films.txt','a+') as file :
@@ -38,18 +39,6 @@ def ask_number_people():
     askbox = Entry(window1, background='white',
                    foreground='black', width=14, font=('Arial', 25))
     askbox.place(x=0, y=100)
-
-
-name_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg,
-                   activebackground=backg, width=20, height=2, text='Name', font=('Arial', 25))
-welcome_label = Label(window, bg='#33FFB2', fg='#336EFF', activebackground='#33FFB2', activeforeground='#336EFF',
-                      width=30, height=2, text='Welcome to NCFE Cinemas', font=('American Typewriter', 25))
-number_people_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg,
-                            width=25, height=2, text='Please choose number of people', font=('Arial', 25))
-film_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg,
-                   width=20, height=2, text='Please Choose film', font=('Arial', 25))
-input_box = Entry(window, background='white',
-                  foreground='black', width=21, font=('Arial', 25))
 
 
 welcome_label = Label(window, fg='#336EFF', activeforeground='#336EFF',
@@ -108,25 +97,6 @@ film_button3.place(x=1130, y=400)
 rating_bar.place(x=500, y=780)
 rate_button.place(x=910, y=797)
 exit_button.place(x=1410, y=795)
-
-window.mainloop()
-
-name_label.place(x=30, y=150)
-
-number_people_label.place(x=500, y=150)
-film_label.place(x=1050, y=150)
-input_box.place(x=30, y=250)
-number_people_button_1.place(x=600, y=300)
-number_people_button_2.place(x=600, y=350)
-number_people_button_3.place(x=600, y=400)
-number_people_button_4.place(x=600, y=450)
-number_people_button_5.place(x=600, y=500)
-number_people_button_5plus.place(x=600, y=550)
-film_button1.place(x=1100, y=300)
-film_button2.place(x=1100, y=350)
-film_button3.place(x=1100, y=400)
-rating_bar.place(y=700, x=500)
-rate_button.place(x=910, y=700)
 register_button.place(x=60, y=300)
 
 
