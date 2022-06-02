@@ -5,18 +5,16 @@ from pydoc import text
 from tkinter import *
 import tkinter
 from tkinter.messagebox import askyesno
-from turtle import width
+
 # with open('Films.txt','a+') as file :
 #     file.write('Movie List')
-window_size = '1500x1000'
 foreg = 'black'
 backg = 'white'
 
 
 window = Tk()
 window.title('Home Screen')
-window.geometry(window_size)
-window.resizable(False, False)
+window.attributes('-fullscreen', True)
 people_var = IntVar()
 film_var = StringVar()
 rating = DoubleVar()
