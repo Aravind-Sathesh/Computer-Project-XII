@@ -58,7 +58,7 @@ number_people_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, 
 film_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg,
                    width=20, height=1, text='Please choose movie', font=('Helvetica', 25))
 input_box = Entry(window, background='white',
-                  foreground='black', width=21, font=('Helvetica', 25))
+                  foreground='black', width=19, font=('Helvetica', 25))
 
 # Displaying buttons and setting attributes
 number_people_button_1 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
@@ -86,27 +86,27 @@ rate_button = Button(window, text='Rate us', command=thankyou,
 exit_button = Button(window, text='Exit', width=10, command=closewindow,
                      height=1, font=('Helvetica', 15))
 register_button = Button(
-    window, text='Proceed to booking', font=('Comic Sans', 25))
+    window, text='✅', font=('Helvetica', 15))
 
 # Setting location of buttons, labels, etc. in x and y coordinates:
 name_label.place(x=30, y=150)
 welcome_label.place(x=400, y=0)
-number_people_label.place(x=522, y=150)
-film_label.place(x=1125, y=150)
+number_people_label.place(x=497, y=150)
+film_label.place(x=1090, y=150)
 input_box.place(x=30, y=250)
-number_people_button_1.place(x=525, y=300)
-number_people_button_2.place(x=525, y=350)
-number_people_button_3.place(x=525, y=400)
-number_people_button_4.place(x=525, y=450)
-number_people_button_5.place(x=525, y=500)
-number_people_button_5plus.place(x=525, y=550)
-film_button1.place(x=1130, y=300)
-film_button2.place(x=1130, y=350)
-film_button3.place(x=1130, y=400)
+number_people_button_1.place(x=500, y=300)
+number_people_button_2.place(x=500, y=350)
+number_people_button_3.place(x=500, y=400)
+number_people_button_4.place(x=500, y=450)
+number_people_button_5.place(x=500, y=500)
+number_people_button_5plus.place(x=500, y=550)
+film_button1.place(x=1100, y=300)
+film_button2.place(x=1100, y=350)
+film_button3.place(x=1100, y=400)
 rating_bar.place(x=500, y=725)
 rate_button.place(x=910, y=755)
 exit_button.place(x=1375, y=755)
-register_button.place(x=60, y=300)
+register_button.place(x=380, y=250)
 
 # Required command to launch output window
 window.mainloop()
