@@ -1,7 +1,6 @@
 # Computer Science Project
 # Movie Theatre
 
-from asyncio import windows_events
 from tkinter import *
 import tkinter
 from tkinter.messagebox import askyesno
