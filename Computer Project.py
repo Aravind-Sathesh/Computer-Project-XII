@@ -1,6 +1,7 @@
 # Computer Science Project
 # Movie Theatre
 
+from asyncio import windows_events
 from tkinter import *
 import tkinter
 from tkinter.messagebox import askyesno
@@ -9,13 +10,15 @@ from tkinter.messagebox import askyesno
 #     file.write('Movie List')
 
 # Setting values for some common colours:
+window_size = '1500x800'
 foreg = 'black'
 backg = 'white'
 
 # Creating output window and setting attributes:
 window = Tk()
 window.title('Home Screen')
-window.attributes('-fullscreen', True)
+window.geometry(window_size)
+window.resizable(False, False)
 people_var = IntVar()
 film_var = StringVar()
 rating = DoubleVar()
@@ -30,7 +33,7 @@ def review():  # Function to receive user rating
 
 
 def thankyou():  # Function to be displayed when booking is done
-    askyesno(title='Thankyou', message='Hope you had a wonderful time')
+    askyesno(title='Thankyou', message='Did you enjoy the booking experience?')
 
 
 def ask_number_people():
@@ -38,10 +41,10 @@ def ask_number_people():
     window1.geometry('250x200')
     window1.resizable(False, False)
     label_ask = Button(window1, text='Please enter the number of people',
-                       width=26, height=3, font=('Arial', 10))
+                       width=26, height=3, font=('Helvetica', 10))
     label_ask.place(x=15, y=0)
     askbox = Entry(window1, background='white',
-                   foreground='black', width=14, font=('Arial', 25))
+                   foreground='black', width=14, font=('Helvetica', 25))
     askbox.place(x=0, y=100)
 
 
@@ -49,13 +52,13 @@ def ask_number_people():
 welcome_label = Label(window, fg='#336EFF',
                       width=30, height=2, text='Welcome to NCFE Cinemas', font=('Algerian', 30))
 name_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg,
-                   width=20, height=1, text='Please enter your name', font=('Arial', 25))
+                   width=20, height=1, text='Please enter your name', font=('Helvetica', 25))
 number_people_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg,
-                            width=27, height=1, text='Please choose number of viewers', font=('Arial', 25))
+                            width=27, height=1, text='Please choose number of viewers', font=('Helvetica', 25))
 film_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg,
-                   width=20, height=1, text='Please choose movie', font=('Arial', 25))
+                   width=20, height=1, text='Please choose movie', font=('Helvetica', 25))
 input_box = Entry(window, background='white',
-                  foreground='black', width=21, font=('Arial', 25))
+                  foreground='black', width=21, font=('Helvetica', 25))
 
 # Displaying buttons and setting attributes
 number_people_button_1 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
@@ -77,11 +80,11 @@ film_button2 = Radiobutton(window, activebackground='white', activeforeground='#
 film_button3 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
     'ComicSans', '25'), text='Film3', variable=film_var, value='Film3')
 rating_bar = Scale(window, variable=rating, orient=HORIZONTAL, bd=3,
-                   font=('Arial', 20), from_=0, to=10, length=400)
+                   font=('Helvetica', 20), from_=0, to=10, length=400)
 rate_button = Button(window, text='Rate us', command=thankyou,
-                     width=10, height=2, font=('Arial', 15))
+                     width=10, height=1, font=('Helvetica', 15))
 exit_button = Button(window, text='Exit', width=10, command=closewindow,
-                     height=2, font=('Arial', 15))
+                     height=1, font=('Helvetica', 15))
 register_button = Button(
     window, text='Proceed to booking', font=('Comic Sans', 25))
 
@@ -100,9 +103,9 @@ number_people_button_5plus.place(x=525, y=550)
 film_button1.place(x=1130, y=300)
 film_button2.place(x=1130, y=350)
 film_button3.place(x=1130, y=400)
-rating_bar.place(x=500, y=780)
-rate_button.place(x=910, y=797)
-exit_button.place(x=1410, y=795)
+rating_bar.place(x=500, y=725)
+rate_button.place(x=910, y=755)
+exit_button.place(x=1375, y=755)
 register_button.place(x=60, y=300)
 
 # Required command to launch output window
