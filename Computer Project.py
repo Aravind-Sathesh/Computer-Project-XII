@@ -2,14 +2,11 @@
 # Movie Theatre
 
 from tkinter import *
-import tkinter
 from tkinter.messagebox import askyesno
 
-# with open('Films.txt','a+') as file :
-#     file.write('Movie List')
 
 # Setting values for some common colours:
-window_size = '1500x800'
+window_size = '1500x570'
 foreg = 'black'
 backg = 'white'
 
@@ -18,7 +15,7 @@ window = Tk()
 window.title('Home Screen')
 window.geometry(window_size)
 window.resizable(False, False)
-people_var = IntVar()
+window.config(bg='black')
 film_var = StringVar()
 rating = DoubleVar()
 
@@ -33,18 +30,16 @@ def review():  # Function to receive user rating
 
 def thankyou():  # Function to be displayed when booking is done
     askyesno(title='Thankyou', message='Did you enjoy the booking experience?')
+    print(rating.get())
 
 
-def ask_number_people():
-    window1 = Toplevel(window)
-    window1.geometry('250x200')
-    window1.resizable(False, False)
-    label_ask = Button(window1, text='Please enter the number of people',
-                       width=26, height=3, font=('Helvetica', 10))
-    label_ask.place(x=15, y=0)
-    askbox = Entry(window1, background='white',
-                   foreground='black', width=14, font=('Helvetica', 25))
-    askbox.place(x=0, y=100)
+def add_person():  # Adds a dictionary to a file
+    with open('Films.txt', 'a+') as file:
+        dict1 = {}
+        dict1['Master'] = input_box.get()
+        dict1['Film'] = film_var.get()
+        dict1['Persons'] = number_box.get()
+        file.write(f'{dict1}\n')
 
 
 # Displaying labels and setting attributes
@@ -58,20 +53,10 @@ film_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebac
                    width=20, height=1, text='Please choose movie', font=('Helvetica', 25))
 input_box = Entry(window, background='white',
                   foreground='black', width=19, font=('Helvetica', 25))
+number_box = Entry(window, background='white',
+                   foreground='black', width=19, font=('Helvetica', 25))
 
 # Displaying buttons and setting attributes
-number_people_button_1 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='1', variable=people_var, value=1)
-number_people_button_2 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='2', variable=people_var, value=2)
-number_people_button_3 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='3', variable=people_var, value=3)
-number_people_button_4 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='4', variable=people_var, value=4)
-number_people_button_5 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='5', variable=people_var, value=5)
-number_people_button_5plus = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
-    'ComicSans', '25'), text='5+', variable=people_var, value=6)
 film_button1 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
     'ComicSans', '25'), text='Film1', variable=film_var, value='Film1')
 film_button2 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
@@ -85,27 +70,24 @@ rate_button = Button(window, text='Rate us', command=thankyou,
 exit_button = Button(window, text='Exit', width=10, command=closewindow,
                      height=1, font=('Helvetica', 15))
 register_button = Button(
-    window, text='✅', font=('Helvetica', 15))
+    window, text='✅', font=('Helvetica', 15), command=add_person)
+
 
 # Setting location of buttons, labels, etc. in x and y coordinates:
+number_box.place(x=575, y=200)
 name_label.place(x=30, y=150)
 welcome_label.place(x=400, y=0)
 number_people_label.place(x=497, y=150)
 film_label.place(x=1090, y=150)
-input_box.place(x=30, y=250)
-number_people_button_1.place(x=500, y=300)
-number_people_button_2.place(x=500, y=350)
-number_people_button_3.place(x=500, y=400)
-number_people_button_4.place(x=500, y=450)
-number_people_button_5.place(x=500, y=500)
-number_people_button_5plus.place(x=500, y=550)
-film_button1.place(x=1100, y=300)
-film_button2.place(x=1100, y=350)
-film_button3.place(x=1100, y=400)
-rating_bar.place(x=500, y=725)
-rate_button.place(x=910, y=755)
-exit_button.place(x=1375, y=755)
-register_button.place(x=380, y=250)
+input_box.place(x=30, y=200)
+film_button1.place(x=1200, y=200)
+film_button2.place(x=1200, y=250)
+film_button3.place(x=1200, y=300)
+rating_bar.place(x=530, y=500)
+rate_button.place(x=960, y=500)
+exit_button.place(x=1375, y=525)
+register_button.place(x=380, y=200)
+
 
 # Required command to launch output window
 window.mainloop()
