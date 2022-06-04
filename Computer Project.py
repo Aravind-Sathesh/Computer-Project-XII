@@ -24,9 +24,6 @@ def closewindow():  # Function to close button when exit button is clicked
     window.destroy()
 
 
-def review():  # Function to receive user rating
-    pass
-
 
 def thankyou():  # Function to be displayed when booking is done
     askyesno(title='Thankyou', message='Did you enjoy the booking experience?')
