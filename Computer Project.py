@@ -2,14 +2,14 @@
 # Movie Theatre
 
 from tkinter import *
+import tkinter
 from tkinter.messagebox import askyesno
 
-
+# with open('Films.txt','a+') as file :
+#     file.write('Movie List')
 
 # Setting values for some universal values:
 window_size = '1500x800'
-# Setting values for some common colours:
-window_size = '1500x570'
 foreg = 'black'
 backg = 'white'
 
@@ -18,7 +18,7 @@ window = Tk()
 window.title('Home Screen')
 window.geometry(window_size)
 window.resizable(False, False)
-window.config(bg='black')
+people_var = IntVar()
 film_var = StringVar()
 rating = DoubleVar()
 
@@ -29,7 +29,6 @@ def closewindow():  # Function to close button when exit button is clicked
 
 def thankyou():  # Function to be displayed when booking is done
     askyesno(title='Thankyou', message='Did you enjoy the booking experience?')
-    print(rating.get())
 
 
 def add_person():  # Adds a dictionary to a file
@@ -37,8 +36,20 @@ def add_person():  # Adds a dictionary to a file
         dict1 = {}
         dict1['Master'] = input_box.get()
         dict1['Film'] = film_var.get()
-        dict1['Persons'] = number_box.get()
+        dict1['Persons'] = people_var.get()
         file.write(f'{dict1}\n')
+
+
+def ask_number_people():
+    window1 = Toplevel(window)
+    window1.geometry('250x200')
+    window1.resizable(False, False)
+    label_ask = Button(window1, text='Please enter the number of people',
+                       width=26, height=3, font=('Helvetica', 10))
+    label_ask.place(x=15, y=0)
+    askbox = Entry(window1, background='white',
+                   foreground='black', width=14, font=('Helvetica', 25))
+    askbox.place(x=0, y=100)
 
 
 # Displaying labels and setting attributes
@@ -52,6 +63,8 @@ film_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebac
                    width=20, height=1, text='Please choose movie', font=('Helvetica', 25))
 input_box = Entry(window, background='white',
                   foreground='black', width=21, font=('Helvetica', 25))
+
+# Displaying buttons and setting attributes
 people_bar = Scale(window, variable=rating, orient=HORIZONTAL, bd=1,
                    font=('Helvetica', 20), from_=1, to=10, length=400, command=people_var)
 film_button1 = Radiobutton(window, activebackground='white', activeforeground='#1E66DA', font=(
@@ -85,8 +98,10 @@ submit_button = Button(window, width=10,
 
 # Setting location of buttons, labels, etc. in x and y coordinates:
 welcome_label.place(x=400, y=0)
+
 name_label.place(x=580, y=125)
 input_box.place(x=582, y=185)
+
 number_people_label.place(x=515, y=275)
 people_bar.place(x=572, y=325)
 film_label.place(x=585, y=460)
