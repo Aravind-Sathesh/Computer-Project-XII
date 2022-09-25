@@ -54,7 +54,7 @@ def ask_number_people():
 
 # Displaying labels and setting attributes
 welcome_label = Label(window, fg='#336EFF',
-                      width=30, height=2, text='Welcome to NCFE Cinemas', font=('Algerian', 30))
+                      width=30, height=2, text='Welcome to NCFE Miniplex', font=('Algerian', 30))
 name_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg,
                    width=20, height=1, text='Please enter your name', font=('Helvetica', 25))
 number_people_label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg,
