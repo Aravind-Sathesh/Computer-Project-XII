@@ -2,7 +2,7 @@
 # Movie Theatre
 
 from tkinter import *
-import tkinter
+import csv
 from tkinter.messagebox import askyesno
 
 # with open('Films.txt','a+') as file :
@@ -32,7 +32,7 @@ def thankyou():  # Function to be displayed when booking is done
 
 
 def add_person():  # Adds a dictionary to a file
-    with open('Films.txt', 'a+') as file:
+    with open('Films.csv', 'a+') as file:
         dict1 = {}
         dict1['Master'] = input_box.get()
         dict1['Film'] = film_var.get()
