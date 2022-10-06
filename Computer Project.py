@@ -9,7 +9,7 @@ from tkinter.messagebox import askyesno
 #     file.write('Movie List')
 
 # Setting values for some universal values:
-window_size = '1500x850'
+window_size = '1500x800'
 foreg = 'black'
 backg = 'white'
 
