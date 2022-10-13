@@ -41,6 +41,8 @@ def ask_number_people():  # Function to take input of number of people the ticke
                    foreground='black', width=14, font=('Helvetica', 25))
     askbox.place(x=0, y=100)
 
+def screen2():
+    pass
 
 # Standard functions for button and label:
 def RADIOBUTTON(t, xloc, yloc, activebg = 'white', activefg = '#1E66DA', f=('ComicSans', '25'), var=film_var):
@@ -51,7 +53,7 @@ def LABEL(t, xloc, yloc, foreg = 'black', backg='white', w=20, h=1, f=('Helvetic
     label.place(x=xloc, y=yloc)
 
 # Displaying labels and setting attributes
-LABEL('Welcome to NCFE Miniplex', 400, 0, foreg='#336EFF')
+LABEL('Welcome to NCFE Miniplex', 455, 0, w = 25, f=('Algerian', 30))
 LABEL('Please enter your name', 580, 125)
 LABEL('Please choose number of viewers', 515, 275, w = 27)
 LABEL('Please choose movie', 585, 460)
