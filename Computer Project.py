@@ -4,17 +4,19 @@
 from tkinter import *
 from tkinter.messagebox import askyesno
 
-foreg = 'black'
-backg = 'white'
 
 # Creating output window and setting attributes:
 window = Tk()
 window.title('Home Screen')
 window.geometry('1500x800')
 window.resizable(False, False)
+window.wm_attributes('-transparentcolor','#add123')
 people_var = IntVar()
 film_var = StringVar()
 rating = DoubleVar()
+# img = PhotoImage(master=window, file='C:\\Users\\aramu\\OneDrive\\Desktop\\image.png')
+# background = Label(window, image = img)
+# backgrouand.place(x=0, y=0)
 
 def closewindow():  # Function to close button when exit button is clicked
     window.destroy()
@@ -45,45 +47,45 @@ def screen2():
     pass
 
 # Standard functions for button and label:
-def RADIOBUTTON(t, xloc, yloc, activebg = 'white', activefg = '#1E66DA', f=('ComicSans', '25'), var=film_var):
-    button = Radiobutton(window, activebackground = activebg, activeforeground=activefg, font=f, text=t, variable=var, value=t)
+def RADIOBUTTON(t, xloc, yloc, pichandle, activebg = 'white', activefg = '#1E66DA', f=('ComicSans', '25'), var=film_var):
+    button = Radiobutton(window, activebackground = activebg, activeforeground=activefg, font=f, image = pichandle, variable=var, value=t)
     button.place(x=xloc, y=yloc)
 def LABEL(t, xloc, yloc, foreg = 'black', backg='white', w=20, h=1, f=('Helvetica', 25)):
     label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg, width=w, height=h, text=t, font=f)
     label.place(x=xloc, y=yloc)
 
+def Picture(filepath):
+    return PhotoImage(master=window, file=filepath) 
+
 # Displaying labels and setting attributes
 LABEL('Welcome to NCFE Miniplex', 455, 0, w = 25, f=('Algerian', 30))
-LABEL('Please enter your name', 580, 125)
-LABEL('Please choose number of viewers', 515, 275, w = 27)
-LABEL('Please choose movie', 585, 460)
+LABEL('Please enter your name', 80, 175)
+LABEL('Please enter number of viewers', 30, 425, w = 25)
+LABEL('Please choose movie', 835, 75)
+
+icon = PhotoImage(master=window, file='C://Sample.png')
 
 # Displaying buttons and setting attributes
-RADIOBUTTON('Film 1', 550, 525)
-RADIOBUTTON('Film 2', 550, 575)
-RADIOBUTTON('Film 3', 550, 625)
-RADIOBUTTON('Film 4', 550, 675)
-RADIOBUTTON('Film 5', 700, 525)
-RADIOBUTTON('Film 6', 700, 575)
-RADIOBUTTON('Film 7', 700, 625)
-RADIOBUTTON('Film 8', 700, 675)
-RADIOBUTTON('Film 9', 850, 525)
-RADIOBUTTON('Film 10', 850, 575)
-RADIOBUTTON('Film 11', 850, 625)
-RADIOBUTTON('Film 12', 850, 675)
+RADIOBUTTON('Film 1', 600, 150, pichandle=icon)
+RADIOBUTTON('Film 2', 900, 150, pichandle=icon)
+RADIOBUTTON('Film 3', 1200, 150, pichandle=icon)
+RADIOBUTTON('Film 4', 600, 450, pichandle=icon)
+RADIOBUTTON('Film 5', 900, 450, pichandle=icon)
+RADIOBUTTON('Film 6', 1200, 450, pichandle=icon)
+
 
 # Displaying other buttons and setting respective attributes
 input_box = Entry(window, background='white',foreground='black', width=21, font=('Helvetica', 25))
-input_box.place(x=582, y=185)
+input_box.place(x=82, y=235)
 
 people_bar = Scale(window, variable=rating, orient=HORIZONTAL, bd=1, font=('Helvetica', 20), from_=1, to=10, length=400, command=people_var)
-people_bar.place(x=572, y=325)
+people_bar.place(x=72, y=475)
 
 exit_button = Button(window, text='Exit', width=10, command=closewindow, height=1, font=('Helvetica', 15))
 exit_button.place(x=1375, y=755)
 
-submit_button = Button(window, width=10, text='Submit', font=('Helvetica', 16), command=screen2)
-submit_button.place(x=710, y=755)
+submit_button = Button(window, width=10, text='Proceed', font=('Helvetica', 16), command=screen2)
+submit_button.place(x=700, y=755)
 
 # Required command to launch output window
 window.mainloop()
