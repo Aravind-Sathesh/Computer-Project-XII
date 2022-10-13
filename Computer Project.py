@@ -4,13 +4,11 @@
 from tkinter import *
 from tkinter.messagebox import askyesno
 
-
 # Creating output window and setting attributes:
 window = Tk()
 window.title('Home Screen')
 window.geometry('1500x800')
 window.resizable(False, False)
-window.wm_attributes('-transparentcolor','#add123')
 people_var = IntVar()
 film_var = StringVar()
 rating = DoubleVar()
