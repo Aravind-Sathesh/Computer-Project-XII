@@ -41,7 +41,7 @@ def ask_number_people():  # Function to take input of number of people the ticke
                    foreground='black', width=14, font=('Helvetica', 25))
     askbox.place(x=0, y=100)
 
-def screen2():
+def screen2(): #Seats allotment screen
     pass
 
 # Standard functions for button and label:
@@ -51,9 +51,9 @@ def RADIOBUTTON(t, xloc, yloc, pichandle, activebg = 'white', activefg = '#1E66D
 def LABEL(t, xloc, yloc, foreg = 'black', backg='white', w=20, h=1, f=('Helvetica', 25)):
     label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg, width=w, height=h, text=t, font=f)
     label.place(x=xloc, y=yloc)
-
-def Picture(filepath):
-    return PhotoImage(master=window, file=filepath) 
+def PICTURE(filepath): #Not working for now
+    pic = PhotoImage(master=window, file=filepath)
+    return pic
 
 # Displaying labels and setting attributes
 LABEL('Welcome to NCFE Miniplex', 455, 0, w = 25, f=('Algerian', 30))
@@ -61,15 +61,15 @@ LABEL('Please enter your name', 80, 175)
 LABEL('Please enter number of viewers', 30, 425, w = 25)
 LABEL('Please choose movie', 835, 75)
 
-icon = PhotoImage(master=window, file='C://Sample.png')
-
+icon = PhotoImage(master=window, file='C://Sample.png') #Temporary image sample
+ 
 # Displaying buttons and setting attributes
-RADIOBUTTON('Film 1', 600, 150, pichandle=icon)
-RADIOBUTTON('Film 2', 900, 150, pichandle=icon)
-RADIOBUTTON('Film 3', 1200, 150, pichandle=icon)
-RADIOBUTTON('Film 4', 600, 450, pichandle=icon)
-RADIOBUTTON('Film 5', 900, 450, pichandle=icon)
-RADIOBUTTON('Film 6', 1200, 450, pichandle=icon)
+RADIOBUTTON('Film 1', 600, 150, icon)
+RADIOBUTTON('Film 2', 900, 150, icon)
+RADIOBUTTON('Film 3', 1200, 150, icon)
+RADIOBUTTON('Film 4', 600, 450, icon)
+RADIOBUTTON('Film 5', 900, 450, icon)
+RADIOBUTTON('Film 6', 1200, 450, icon)
 
 
 # Displaying other buttons and setting respective attributes
