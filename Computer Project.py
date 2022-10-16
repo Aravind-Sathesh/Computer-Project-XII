@@ -1,8 +1,10 @@
 # Computer Science Project
 # Movie Theatre
 
+from turtle import Screen, width
 from tkinter import *
-from tkinter.messagebox import askyesno
+from tkinter.messagebox import askyesno, showerror
+from cgitb import text
 import csv
 
 # Creating output window and setting attributes:
@@ -13,9 +15,12 @@ window.resizable(False, False)
 people_var = IntVar()
 film_var = StringVar()
 rating = DoubleVar()
-# img = PhotoImage(master=window, file='C:\\Users\\aramu\\OneDrive\\Desktop\\image.png')
-# background = Label(window, image = img)
-# backgrouand.place(x=0, y=0)
+seat_var1 = seat_var2 = seat_var3 = seat_var4 = seat_var5 = seat_var6 = seat_var7 = seat_var8 = seat_var9 = seat_var10 = seat_var11 = seat_var12 = seat_var13 = seat_var14 = seat_var15 = seat_var16 = seat_var17 = seat_var18 = seat_var19 = seat_var20 = seat_var21 = seat_var22 = seat_var23 = seat_var24 = seat_var25 = seat_var26 = seat_var27 = seat_var28 = seat_var29 = seat_var30 = seat_var31 = seat_var32 = seat_var33 = seat_var34 = seat_var35 = seat_var36 = seat_var37 = seat_var38 = seat_var39 = IntVar()
+gold_seat_color = '#FFD700'
+blue_seat_color = '#00A1FF'
+selected_color = '#00FF00'
+seat_width = 5
+seat_height = 3
 
 def closewindow():  # Function to close button when exit button is clicked
     window.destroy()
@@ -23,13 +28,13 @@ def closewindow():  # Function to close button when exit button is clicked
 def thankyou():  # Function to be displayed when booking is done
     askyesno(title='Thankyou', message='Did you enjoy the booking experience?')
 
-def add_person():  # Adds a dictionary to a file
-    with open('Films.csv', 'a+') as file:
-        dict1 = {}
-        dict1['Name'] = input_box.get()
-        dict1['Movie'] = film_var.get()
-        dict1['Persons'] = people_var.get()
-        file.write(f'{dict1}\n')
+# def add_person():  # Adds a dictionary to a file
+#     with open('Films.csv', 'a+') as file:
+#         dict1 = {}
+#         dict1['Name'] = input_box.get()
+#         dict1['Movie'] = film_var.get()
+#         dict1['Persons'] = people_var.get()
+#         file.write(f'{dict1}\n')
 
 def ask_number_people():  # Function to take input of number of people the ticket is being booked for
     window1 = Toplevel(window)
@@ -42,8 +47,86 @@ def ask_number_people():  # Function to take input of number of people the ticke
                    foreground='black', width=14, font=('Helvetica', 25))
     askbox.place(x=0, y=100)
 
-def screen2(): #Seats allotment screen
-    pass
+def check_seats():
+    sums = 0
+    for i in listm:
+        sums += i.get()
+    correct = people_var.get()
+    if sums > correct:
+        showerror('Message', f'Select only {correct} seats')
+
+def screen2():  # Seats allotment screen
+    global screen_2
+    screen_2 = Toplevel()
+    screen_2.title('Booking Screen')
+    screen_2.geometry('1470x800')
+    screen_2.resizable(False, False)
+
+    heading = Label(screen_2, activebackground='black',
+                    activeforeground='green', width=26, height=3, font=('Helvetica', 25), text='Select your seat')
+    heading.place(x=455, y=0)
+    global seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat9, seat9, seat9, seat9, seat10, seat11, seat12, seat13, seat14, seat15, seat16, seat17, seat18, seat19, seat20, seat21, seat22, seat23, seat24, seat25, seat26, seat27, seat28, seat29, seat30, seat31, seat32, seat33, seat34, seat35, seat36, seat37, seat38, seat39
+    seat1 = Checkbutton(screen_2, activebackground=selected_color,  bg=gold_seat_color, font=('Helvetica', 25), text='A1', width=seat_width, height=seat_height, variable=seat_var1, onvalue=1, offvalue=0, command=check_seats)
+    seat2 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A2', width=seat_width, height=seat_height, variable=seat_var2, onvalue=1, offvalue=0, command=check_seats)
+    seat3 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A3', width=seat_width, height=seat_height, variable=seat_var3, onvalue=1, offvalue=0, command=check_seats)
+    seat4 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A4', width=seat_width, height=seat_height, variable=seat_var4, onvalue=1, offvalue=0, command=check_seats)
+    seat5 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A5', width=seat_width, height=seat_height, variable=seat_var5, onvalue=1, offvalue=0, command=check_seats)
+    seat6 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A6', width=seat_width, height=seat_height, variable=seat_var6, onvalue=1, offvalue=0, command=check_seats)
+    seat7 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A7', width=seat_width, height=seat_height, variable=seat_var7, onvalue=1, offvalue=0, command=check_seats)
+    seat8 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A8', width=seat_width, height=seat_height, variable=seat_var8, onvalue=1, offvalue=0, command=check_seats)
+    seat9 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A9', width=seat_width, height=seat_height, variable=seat_var9, onvalue=1, offvalue=0, command=check_seats)
+    seat10 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A10', width=seat_width, height=seat_height, variable=seat_var10, onvalue=1, offvalue=0, command=check_seats)
+    seat11 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A11', width=seat_width, height=seat_height, variable=seat_var11, onvalue=1, offvalue=0, command=check_seats)
+    seat12 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A12', width=seat_width, height=seat_height, variable=seat_var12, onvalue=1, offvalue=0, command=check_seats)
+    seat13 = Checkbutton(screen_2, activebackground=selected_color, bg=gold_seat_color, font=('Helvetica', 25), text='A13', width=seat_width, height=seat_height, variable=seat_var13, onvalue=1, offvalue=0, command=check_seats)
+    seat14 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B1', width=seat_width, height=seat_height, variable=seat_var14, onvalue=1, offvalue=0, command=check_seats)
+    seat15 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B2', width=seat_width, height=seat_height, variable=seat_var15, onvalue=1, offvalue=0, command=check_seats)
+    seat16 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B3', width=seat_width, height=seat_height, variable=seat_var16, onvalue=1, offvalue=0, command=check_seats)
+    seat17 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B4', width=seat_width, height=seat_height, variable=seat_var17, onvalue=1, offvalue=0, command=check_seats)
+    seat18 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B5', width=seat_width, height=seat_height, variable=seat_var18, onvalue=1, offvalue=0, command=check_seats)
+    seat19 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B6', width=seat_width, height=seat_height, variable=seat_var19, onvalue=1, offvalue=0, command=check_seats)
+    seat20 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B7', width=seat_width, height=seat_height, variable=seat_var20, onvalue=1, offvalue=0, command=check_seats)
+    seat21 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B8', width=seat_width, height=seat_height, variable=seat_var21, onvalue=1, offvalue=0, command=check_seats)
+    seat22 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B9', width=seat_width, height=seat_height, variable=seat_var22, onvalue=1, offvalue=0, command=check_seats)
+    seat23 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B10', width=seat_width, height=seat_height, variable=seat_var23, onvalue=1, offvalue=0, command=check_seats)
+    seat24 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B11', width=seat_width, height=seat_height, variable=seat_var24, onvalue=1, offvalue=0, command=check_seats)
+    seat25 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B12', width=seat_width, height=seat_height, variable=seat_var25, onvalue=1, offvalue=0, command=check_seats)
+    seat26 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='B13', width=seat_width, height=seat_height, variable=seat_var26, onvalue=1, offvalue=0, command=check_seats)
+    seat27 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C1', width=seat_width, height=seat_height, variable=seat_var27, onvalue=1, offvalue=0, command=check_seats)
+    seat28 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C2', width=seat_width, height=seat_height, variable=seat_var28, onvalue=1, offvalue=0, command=check_seats)
+    seat29 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C3', width=seat_width, height=seat_height, variable=seat_var29, onvalue=1, offvalue=0, command=check_seats)
+    seat30 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C4', width=seat_width, height=seat_height, variable=seat_var30, onvalue=1, offvalue=0, command=check_seats)
+    seat31 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C5', width=seat_width, height=seat_height, variable=seat_var31, onvalue=1, offvalue=0, command=check_seats)
+    seat32 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C6', width=seat_width, height=seat_height, variable=seat_var32, onvalue=1, offvalue=0, command=check_seats)
+    seat33 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C7', width=seat_width, height=seat_height, variable=seat_var33, onvalue=1, offvalue=0, command=check_seats)
+    seat34 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C8', width=seat_width, height=seat_height, variable=seat_var34, onvalue=1, offvalue=0, command=check_seats)
+    seat35 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C9', width=seat_width, height=seat_height, variable=seat_var35, onvalue=1, offvalue=0, command=check_seats)
+    seat36 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C10', width=seat_width, height=seat_height, variable=seat_var36, onvalue=1, offvalue=0, command=check_seats)
+    seat37 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C11', width=seat_width, height=seat_height, variable=seat_var37, onvalue=1, offvalue=0, command=check_seats)
+    seat38 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C12', width=seat_width, height=seat_height, variable=seat_var38, onvalue=1, offvalue=0, command=check_seats)
+    seat39 = Checkbutton(screen_2, activebackground=selected_color, bg=blue_seat_color, font=('Helvetica', 25), text='C13', width=seat_width, height=seat_height, variable=seat_var39, onvalue=1, offvalue=0, command=check_seats)
+    global listm
+    list1 = [seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat10, seat11, seat12, seat13]
+    list2 = [seat14, seat15, seat16, seat17, seat18, seat19, seat20, seat21, seat22, seat23, seat24, seat25, seat26]
+    list3 = [seat27, seat28, seat29, seat30, seat31, seat32, seat33, seat34, seat35, seat36, seat37, seat38, seat39]
+    listm = (seat_var1, seat_var2, seat_var3, seat_var4, seat_var5, seat_var6, seat_var7, seat_var8, seat_var9, seat_var10, seat_var11, seat_var12, seat_var13, seat_var14, seat_var15, seat_var16, seat_var17, seat_var18, seat_var19, seat_var20, seat_var21, seat_var22, seat_var23, seat_var24, seat_var25, seat_var26, seat_var27, seat_var28, seat_var29, seat_var30, seat_var31, seat_var32, seat_var33, seat_var34, seat_var35, seat_var36, seat_var37, seat_var38, seat_var39)
+    xlocation = 10
+    for i in list1:
+        i.place(x=xlocation, y=200)
+        xlocation += 110
+    xlocation = 10
+    for j in list2:
+        j.place(x=xlocation, y=350)
+        xlocation += 110
+    xlocation = 10
+    for k in list3:
+        k.place(x=xlocation, y=500)
+        xlocation += 110
+
+    screen_this_way = Label(screen_2, bg='black', fg='white', width=133, height=3, text='Screen this way', font=('ComicSans', 15), activeforeground='white', activebackground='black', anchor=CENTER)
+    projector = Label(screen_2, bg='grey', fg='white', width=34, height=3, text='Projector', font=('ComicSans', 15), activeforeground='white', activebackground='grey', anchor=CENTER)
+    screen_this_way.place(x=0, y=700)
+    projector.place(x=515, y=100)
 
 # Standard functions for button and label:
 def RADIOBUTTON(t, xloc, yloc, pichandle, activebg = 'white', activefg = '#1E66DA', f=('ComicSans', '25'), var=film_var):
@@ -62,7 +145,7 @@ LABEL('Please enter your name', 80, 175)
 LABEL('Please enter number of viewers', 30, 425, w = 25)
 LABEL('Please choose movie', 835, 75)
 
-thumbnail1 = PhotoImage(master=window, file='1. BlackAdam (Small).png', name='Black Adam')
+thumbnail1 = PhotoImage(master=window, file='1. BlackAdam (Small).png',)
 thumbnail2 = PhotoImage(master=window, file='2. 777_Charlie (Small).png')
 thumbnail3 = PhotoImage(master=window, file='3. RRR (Small).png')
 thumbnail4 = PhotoImage(master=window, file='4. PS1 (Small).png')
