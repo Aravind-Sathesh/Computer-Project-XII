@@ -2,7 +2,7 @@
 # Movie Theatre
 
 #importing required modules
-from turtle import Screen, width
+from turtle import Screen
 from tkinter import *
 from tkinter.messagebox import askyesno, showerror
 from cgitb import text
@@ -62,11 +62,11 @@ color = '#00FF00'
 seat_width = 5
 seat_height = 3
 
-# Function to close button when exit button is clicked
-def closewindow():  
+
+def closewindow():  # Function to close button when exit button is clicked
     window.destroy()
-# Function to be displayed when booking is done
-def thankyou(): 
+
+def thankyou(): # Function to be displayed when booking is done
     askyesno(title='Thankyou', message='Did you enjoy the booking experience?')
 
 # def add_person():  # Adds a dictionary to a file
@@ -88,7 +88,7 @@ def ask_number_people():  # Function to take input of number of people the ticke
                    foreground='black', width=14, font=seat_font)
     askbox.place(x=0, y=100)
 
-def check_seats():
+def check_seats(): # Function to emsure that the user only selects the number of seats entered in screen 1
     sums = 0
     for i in listm:
         sums += i.get()
@@ -168,14 +168,15 @@ def screen2():  # Seats allotment screen
     screen_this_way.place(x=0, y=700)
     projector.place(x=515, y=100)
 
-# Standard functions for button and label:
-def RADIOBUTTON(t, xloc, yloc, pichandle, activebg = 'white', activefg = '#1E66DA', f=('ComicSans', '25'), var=film_var):
+def RADIOBUTTON(t, xloc, yloc, pichandle, activebg = 'white', activefg = '#1E66DA', f=('ComicSans', '25'), var=film_var): # Functions tp create radiobutton
     button = Radiobutton(window, activebackground = activebg, activeforeground=activefg, font=f, image = pichandle, variable=var, value=t)
     button.place(x=xloc, y=yloc)
-def LABEL(t, xloc, yloc, foreg = 'black', backg='white', w=20, h=1, f=seat_font):
+
+def LABEL(t, xloc, yloc, foreg = 'black', backg='white', w=20, h=1, f=seat_font): # Functions tp create label
     label = Label(window, fg=foreg, bg=backg, activeforeground=foreg, activebackground=backg, width=w, height=h, text=t, font=f)
     label.place(x=xloc, y=yloc)
-def PICTURE(filepath): #Not working for now
+
+def PICTURE(filepath): # Functions tp create radiobutton - Not working for now
     pic = PhotoImage(master=window, file=filepath)
     return pic
 
@@ -192,8 +193,7 @@ thumbnail4 = PhotoImage(master=window, file='4. PS1 (Small).png')
 thumbnail5 = PhotoImage(master=window, file='5. Drishyam_2 (Small).png')
 thumbnail6 = PhotoImage(master=window, file='6. Vikram_Vedha (Small).png')
 
-# Displaying buttons and setting attributes from movies.csv file
-with open ('Movies.csv', 'r') as f:
+with open ('Movies.csv', 'r') as f: # Reading from movies.csv file
     csv_reader = csv.reader(f)
     movies_list = []
     for i in csv_reader:
