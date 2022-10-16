@@ -100,40 +100,7 @@ def check_seats():
         showerror('Message', f'Select only {correct} seats')
 
 
-# seat1 = seat2 = seat3 = seat4 = seat5 = seat6 = seat7 = seat8 = seat9 = seat10 = seat11 = seat12 = seat13 = seat14 = seat15 = seat16 = seat17 = seat18 = seat19 = seat20 = seat21 = seat22 = seat23 = seat24 = seat25 = seat26 = seat27 = seat28 = seat29 = seat30 = seat31 = seat32 = seat33 = seat34 = seat35 = seat36 = seat37 = seat38 = seat39 = None
-# list1 = (seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat10, seat11, seat12, seat13, seat14, seat15, seat16, seat17, seat18, seat19, seat20,
-#          seat21, seat22, seat23, seat24, seat25, seat26, seat27, seat28, seat29, seat30, seat31, seat32, seat33, seat34, seat35, seat36, seat37, seat38, seat39)
-# variable_list = (seat_var1, seat_var2, seat_var3, seat_var4,
-#                  seat_var5, seat_var6, seat_var7, seat_var8, seat_var9, seat_var10, seat_var11, seat_var12, seat_var13, seat_var14, seat_var15, seat_var16, seat_var17, seat_var18, seat_var19,
-#                  seat_var20, seat_var21, seat_var22, seat_var23, seat_var24, seat_var25, seat_var26,
-#                  seat_var27, seat_var28, seat_var29, seat_var30, seat_var31, seat_var32, seat_var33, seat_var34, seat_var35, seat_var36, seat_var37, seat_var38, seat_var39)
-# names = ('A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10', 'A11', 'A12', 'A13', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6',
-#          'B7', 'B8', 'B9', 'B10', 'B11', 'B12', 'B13', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12', 'C13')
 
-
-# def create_seats():
-#     xlocation1 = 10
-#     ylocation1 = 200
-#     for i in range(len(list1)):
-#         if i <= 12:
-#             list1[i] = Checkbutton(screen_2, activebackground=selected_color,  bg=gold_seat_color, font=(
-#                 '   Helvetica', 25),  width=seat_width, height=seat_height, onvalue=1, offvalue=0, command=check_seats, text=names[i], variable=variable_list[i])
-#             list1[i].place(xlocation1, ylocation1)
-#             xlocation += 110
-#         elif i >= 13 and i <= 25:
-#             xlocation2 = 10
-#             ylocation2 = 350
-#             list1[i] = Checkbutton(screen_2, activebackground=selected_color,  bg=gold_seat_color, font=(
-#                 'Helvetica', 25),  width=seat_width, height=seat_height, onvalue=1, offvalue=0, command=check_seats, text=names[i], variable=variable_list[i])
-#             list1[i].place(xlocation2, ylocation2)
-#             xlocation2 += 110
-#         elif i > 26:
-#             xlocation3 = 10
-#             ylocation3 = 500
-#             list1[i] = Checkbutton(screen_2, activebackground=selected_color,  bg=gold_seat_color, font=(
-#                 'Helvetica', 25),  width=seat_width, height=seat_height, onvalue=1, offvalue=0, command=check_seats, text=names[i], variable=variable_list[i])
-#             list1[i].place(xlocation3, ylocation3)
-#             xlocation3 += 110
 
 
 def screen2():  # Seats allotment screen
