@@ -25,8 +25,8 @@ def thankyou():  # Function to be displayed when booking is done
 def add_person():  # Adds a dictionary to a file
     with open('Films.csv', 'a+') as file:
         dict1 = {}
-        dict1['Master'] = input_box.get()
-        dict1['Film'] = film_var.get()
+        dict1['Name'] = input_box.get()
+        dict1['Movie'] = film_var.get()
         dict1['Persons'] = people_var.get()
         file.write(f'{dict1}\n')
 
