@@ -3,6 +3,7 @@
 
 from tkinter import *
 from tkinter.messagebox import askyesno
+import csv
 
 # Creating output window and setting attributes:
 window = Tk()
@@ -61,16 +62,26 @@ LABEL('Please enter your name', 80, 175)
 LABEL('Please enter number of viewers', 30, 425, w = 25)
 LABEL('Please choose movie', 835, 75)
 
-icon = PhotoImage(master=window, file='C://Sample.png') #Temporary image sample
- 
-# Displaying buttons and setting attributes
-RADIOBUTTON('Film 1', 600, 150, icon)
-RADIOBUTTON('Film 2', 900, 150, icon)
-RADIOBUTTON('Film 3', 1200, 150, icon)
-RADIOBUTTON('Film 4', 600, 450, icon)
-RADIOBUTTON('Film 5', 900, 450, icon)
-RADIOBUTTON('Film 6', 1200, 450, icon)
+thumbnail1 = PhotoImage(master=window, file='1. BlackAdam (Small).png', name='Black Adam')
+thumbnail2 = PhotoImage(master=window, file='2. 777_Charlie (Small).png')
+thumbnail3 = PhotoImage(master=window, file='3. RRR (Small).png')
+thumbnail4 = PhotoImage(master=window, file='4. PS1 (Small).png')
+thumbnail5 = PhotoImage(master=window, file='5. Drishyam_2 (Small).png')
+thumbnail6 = PhotoImage(master=window, file='6. Vikram_Vedha (Small).png')
 
+# Displaying buttons and setting attributes from movies.csv file
+with open ('Movies.csv', 'r') as f:
+    csv_reader = csv.reader(f)
+    movies_list = []
+    for i in csv_reader:
+        movies_list.append(i)
+
+RADIOBUTTON(movies_list[1][1], 600, 150, thumbnail1)
+RADIOBUTTON(movies_list[2][1], 900, 150, thumbnail2)
+RADIOBUTTON(movies_list[3][1], 1200, 150, thumbnail3)
+RADIOBUTTON(movies_list[4][1], 600, 450, thumbnail4)
+RADIOBUTTON(movies_list[5][1], 900, 450, thumbnail5)
+RADIOBUTTON(movies_list[6][1], 1200, 450, thumbnail6)
 
 # Displaying other buttons and setting respective attributes
 input_box = Entry(window, background='white',foreground='black', width=21, font=('Helvetica', 25))
