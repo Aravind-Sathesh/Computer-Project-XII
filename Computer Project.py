@@ -126,7 +126,7 @@ def screen_1():  # Movie selection
     def RADIOBUTTON(t, xloc, yloc, pichandle, activebg='white', activefg='#1E66DA', f=('ComicSans', '25'), var=film_var):
         global button
         button = Radiobutton(screen1, activebackground=activebg,
-                             activeforeground=activefg, font=f, image=pichandle, variable=var, value=t)
+                             activeforeground=activefg, font=f, image=pichandle, variable=var, value=t, borderwidth=3, relief="solid")
         button.place(x=xloc, y=yloc)
     global poster1, poster2, poster3, poster4, poster5, poster6
 
@@ -135,7 +135,7 @@ def screen_1():  # Movie selection
     poster2 = PICTURE('777 Charlie.png')
     poster3 = PICTURE('RRR.png')
     poster4 = PICTURE('Ponniyin Selvan 1.png')
-    poster5 = PICTURE('Drishyam 2.png')
+    poster5 = PICTURE('Bheeshma Parvam.png')
     poster6 = PICTURE('Vikram Vedha.png')
 
     RADIOBUTTON(movies_list[1][1], 600, 150, poster1)
@@ -237,12 +237,7 @@ def screen_2():  # Movie details screen
 
         Movie_Name = str(Movie_Name+'.png')
         poster = PICTURE(Movie_Name, x_size=375, y_size=550)
-        # poster2 = PICTURE('777 Charlie.png')
-        # poster3 = PICTURE('RRR.png')
-        # poster4 = PICTURE('Ponniyin Selvan 1.png')
-        # poster5 = PICTURE('Drishyam 2.png')
-        # poster6 = PICTURE('Vikram Vedha.png')
-        imglabel = Label(screen2, image=poster)
+        imglabel = Label(screen2, image=poster, borderwidth=3, relief="solid")
         imglabel.image = poster
         imglabel.place(x=1050, y=125)
 
