@@ -1,7 +1,7 @@
-Movie,Language,Release date,Rating, Cast,Director
-Black Adam,English,October 21st,7.8/10,"Dwayne Johnson, Aldis Hodge, Pierce Brosnan",Jaume Collet-Serra
-777 Charlie,Kannada,June 10th,3.6/10,"Rakshit Shetty, Charlie, Sangeetha Sringeri",Kiranraj K
-RRR,Telugu,March 25th,4.8/10,"N.T. Rama Rao Jr., Ram Charan Teja, Ajay Devgn",S.S. Rajamouli
-Ponniyin Selvan: Part 1,Tamil,September 30th,9.7/10,"Vikram, Karthi, Jayam Ravi, Aishwarya Rai Bachchan",Mani Ratnam
-Drishyam 2,Malayalam,February 19th,8.3/10,"Mohanlal, Meena, Ansiba",Jeethu Joseph
-Vikram Vedha,Hindi,October 3rd,5.2/10,"Saif Ali Khan, Hrithik Roshan, Radhika Apte","Gayatri, Pushkar"
+Movie,Language,Release date,Runtime,Time, Cast,Director,Rating
+Black Adam,English,October 21st, 2,5,8:00 AM,"Dwayne Johnson, Aldis Hodge, Pierce Brosnan",Jaume Collet-Serra,7.8/10
+777 Charlie,Kannada,June 10th,2,16,11:00 AM,"Rakshit Shetty, Charlie, Sangeetha Sringeri",Kiranraj K,3.6/10
+RRR,Telugu,March 25th,3,7,2:00 PM,"N.T. Rama Rao Jr., Ram Charan Teja, Ajay Devgn",S.S. Rajamouli,4.8/10
+Ponniyin Selvan: Part 1,Tamil,September 30th,2,47,5:30 PM,"Vikram, Karthi, Jayam Ravi, Aishwarya Rai Bachchan",Mani Ratnam,9.7/10
+Drishyam 2,Malayalam,February 19th,2,32,9:00 PM,"Mohanlal, Meena, Ansiba",Jeethu Joseph,8.3/10
+Vikram Vedha,Hindi,October 3rd,2,40,12:00 AM,"Saif Ali Khan, Hrithik Roshan, Radhika Apte","Gayatri, Pushkar",5.2/10

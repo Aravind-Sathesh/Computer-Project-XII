@@ -54,10 +54,10 @@ seat_var36 = IntVar()
 seat_var37 = IntVar()
 seat_var38 = IntVar()
 seat_var39 = IntVar()
-Movie_Font = ('Helvetica', 25)
 gold = '#FFD700'
 standard = '#00A1FF'
-seat_font = ('Helvetica', 25)
+main_font = ('Helvetica', 25)
+small_font = ('Helvetica', 20)
 color = '#00FF00'
 seat_width = 4
 seat_height = 2
@@ -95,11 +95,11 @@ def screen1():  # Movie selection
     heading = Label(screen1, width=25, height=1,
                     text='Digital Ticket Counter', font=('Algerian', 30))
     name_label = Label(screen1, width=20, height=1,
-                       text='Please enter your name', font=seat_font)
+                       text='Please enter your name', font=main_font)
     number_label = Label(screen1, width=25, height=1,
-                         text='Please enter number of viewers', font=seat_font,)
+                         text='Please enter number of viewers', font=main_font,)
     moviechoose_label = Label(
-        screen1, width=20, height=1, text='Please choose movie:', font=seat_font)
+        screen1, width=20, height=1, text='Please choose movie:', font=main_font)
 
     # Placing labels
     heading.place(x=440, y=0)
@@ -142,7 +142,7 @@ def screen1():  # Movie selection
 
     # Displaying other buttons and setting respective attributes
     input_box = Entry(screen1, background='white',
-                      foreground='black', width=21, font=seat_font)
+                      foreground='black', width=21, font=main_font)
     input_box.place(x=82, y=235)
 
     people_bar = Scale(screen1, variable=people_var, orient=HORIZONTAL, bd=1, font=(
@@ -176,45 +176,60 @@ def screen2():  # Movie details screen
         Heading.place(x=455, y=0)
 
         # To display details:
-        Movie_Name, Language, Release_Date, Rating, Cast, Director = k
+        Movie_Name, Language, Release_Date, Runtime_h, Runtime_m, Time, Rating, Cast, Director = k
+        Runtime_text = Runtime_h, 'hours,', Runtime_m, 'minutes'
+        print(Runtime_text)
         Movie_Label = Label(master=screen2, text=Movie_Name,
-                            font=Movie_Font, anchor=W)
+                            font=small_font, anchor=W)
         Language_Label = Label(
-            master=screen2, text=Language, font=Movie_Font, anchor=W)
+            master=screen2, text=Language, font=small_font, anchor=W)
         Release_Label = Label(
-            master=screen2, text=Release_Date, font=Movie_Font, anchor=W)
-        Rating_Label = Label(master=screen2, text=Rating,
-                             font=Movie_Font, anchor=W)
+            master=screen2, text=Release_Date, font=small_font, anchor=W)
+        Runtime_Label = Label(
+            master=screen2, text=Runtime_text, font=small_font, anchor=W)
+        Time_Label = Label(
+            master=screen2, text=Time, font=small_font, anchor=W)
         Cast_Label = Label(master=screen2, text=Cast,
-                           font=Movie_Font, anchor=W)
+                           font=small_font, anchor=W)
         Director_Label = Label(
-            master=screen2, text=Director, font=Movie_Font, anchor=W)
-        Cast_Heading = Label(master=screen2, text='Cast:',
-                             font=Movie_Font, anchor=E)
-        Director_Heading = Label(
-            master=screen2, text='Director:', font=Movie_Font, anchor=E)
+            master=screen2, text=Director, font=small_font, anchor=W)
+        Rating_Label = Label(master=screen2, text=Rating,
+                             font=small_font, anchor=W)
+
         Movie_Heading = Label(master=screen2, text='Movie:',
-                              font=Movie_Font, anchor=E)
+                              font=small_font, anchor=E)
         Language_Heading = Label(
-            master=screen2, text='Language:', font=Movie_Font, anchor=E)
+            master=screen2, text='Language:', font=small_font, anchor=E)
         Release_Heading = Label(
-            master=screen2, text='Release:', font=Movie_Font, anchor=E)
+            master=screen2, text='Release:', font=small_font, anchor=E)
+        Runtime_Heading = Label(
+            master=screen2, text='Run time:', font=small_font, anchor=E)
+        Time_Heading = Label(
+            master=screen2, text='Time:', font=small_font, anchor=E)
+        Cast_Heading = Label(master=screen2, text='Cast:',
+                             font=small_font, anchor=E)
+        Director_Heading = Label(
+            master=screen2, text='Director:', font=small_font, anchor=E)
         Rating_Heading = Label(
-            master=screen2, text='Rating:', font=Movie_Font, anchor=E)
+            master=screen2, text='Rating:', font=small_font, anchor=E)
 
         # Placement of details:
         Movie_Heading.place(x=100, y=200)
         Movie_Label.place(x=275, y=200)
-        Language_Heading.place(x=100, y=275)
-        Language_Label.place(x=275, y=275)
-        Release_Heading.place(x=100, y=350)
-        Release_Label.place(x=275, y=350)
-        Rating_Heading.place(x=100, y=425)
-        Rating_Label.place(x=275, y=425)
-        Cast_Heading.place(x=100, y=500)
-        Cast_Label.place(x=275, y=500)
-        Director_Heading.place(x=100, y=575)
-        Director_Label.place(x=275, y=575)
+        Language_Heading.place(x=100, y=250)
+        Language_Label.place(x=275, y=250)
+        Release_Heading.place(x=100, y=300)
+        Release_Label.place(x=275, y=300)
+        Runtime_Heading.place(x=100, y=350)
+        Runtime_Label.place(x=275, y=350)
+        Time_Heading.place(x=100, y=400)
+        Time_Label.place(x=275, y=400)
+        Cast_Heading.place(x=100, y=450)
+        Cast_Label.place(x=275, y=450)
+        Director_Heading.place(x=100, y=500)
+        Director_Label.place(x=275, y=500)
+        Rating_Heading.place(x=100, y=550)
+        Rating_Label.place(x=275, y=550)
 
         # Submit and exit buttons:
         exit_button = Button(screen2, text='Exit', width=10,
@@ -251,53 +266,53 @@ def screen3():  # Seats allotment screen
 
     # Defining properties and values for seats
     global seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat9, seat9, seat9, seat9, seat10, seat11, seat12, seat13, seat14, seat15, seat16, seat17, seat18, seat19, seat20, seat21, seat22, seat23, seat24, seat25, seat26, seat27, seat28, seat29, seat30, seat31, seat32, seat33, seat34, seat35, seat36, seat37, seat38, seat39
-    seat1 = Checkbutton(screen3, activebackground=color,  bg=gold, font=seat_font, text='A1',
+    seat1 = Checkbutton(screen3, activebackground=color,  bg=gold, font=main_font, text='A1',
                         width=seat_width, height=seat_height, variable=seat_var1, onvalue=1, offvalue=0, command=check_seats)
-    seat2 = Checkbutton(screen3, activebackground=color, bg=gold, font=seat_font, text='A2', width=seat_width,
+    seat2 = Checkbutton(screen3, activebackground=color, bg=gold, font=main_font, text='A2', width=seat_width,
                         height=seat_height, variable=seat_var2, onvalue=1, offvalue=0, command=check_seats)
-    seat3 = Checkbutton(screen3, activebackground=color, bg=gold, font=seat_font, text='A3', width=seat_width,
+    seat3 = Checkbutton(screen3, activebackground=color, bg=gold, font=main_font, text='A3', width=seat_width,
                         height=seat_height, variable=seat_var3, onvalue=1, offvalue=0, command=check_seats)
-    seat4 = Checkbutton(screen3, activebackground=color, bg=gold, font=seat_font, text='A4', width=seat_width,
+    seat4 = Checkbutton(screen3, activebackground=color, bg=gold, font=main_font, text='A4', width=seat_width,
                         height=seat_height, variable=seat_var4, onvalue=1, offvalue=0, command=check_seats)
-    seat5 = Checkbutton(screen3, activebackground=color, bg=gold, font=seat_font, text='A5', width=seat_width,
+    seat5 = Checkbutton(screen3, activebackground=color, bg=gold, font=main_font, text='A5', width=seat_width,
                         height=seat_height, variable=seat_var5, onvalue=1, offvalue=0, command=check_seats)
-    seat6 = Checkbutton(screen3, activebackground=color, bg=gold, font=seat_font, text='A6', width=seat_width,
+    seat6 = Checkbutton(screen3, activebackground=color, bg=gold, font=main_font, text='A6', width=seat_width,
                         height=seat_height, variable=seat_var6, onvalue=1, offvalue=0, command=check_seats)
-    seat7 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='B1', width=seat_width,
+    seat7 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B1', width=seat_width,
                         height=seat_height, variable=seat_var7, onvalue=1, offvalue=0, command=check_seats)
-    seat8 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='B2', width=seat_width,
+    seat8 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B2', width=seat_width,
                         height=seat_height, variable=seat_var8, onvalue=1, offvalue=0, command=check_seats)
-    seat9 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='B3', width=seat_width,
+    seat9 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B3', width=seat_width,
                         height=seat_height, variable=seat_var9, onvalue=1, offvalue=0, command=check_seats)
-    seat10 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='B4',
+    seat10 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B4',
                          width=seat_width, height=seat_height, variable=seat_var10, onvalue=1, offvalue=0, command=check_seats)
-    seat11 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='B5',
+    seat11 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B5',
                          width=seat_width, height=seat_height, variable=seat_var11, onvalue=1, offvalue=0, command=check_seats)
-    seat12 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='B6',
+    seat12 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B6',
                          width=seat_width, height=seat_height, variable=seat_var12, onvalue=1, offvalue=0, command=check_seats)
-    seat13 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='C1',
+    seat13 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C1',
                          width=seat_width, height=seat_height, variable=seat_var13, onvalue=1, offvalue=0, command=check_seats)
-    seat14 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='C2', width=seat_width,
+    seat14 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C2', width=seat_width,
                          height=seat_height, variable=seat_var14, onvalue=1, offvalue=0, command=check_seats)
-    seat15 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='C3', width=seat_width,
+    seat15 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C3', width=seat_width,
                          height=seat_height, variable=seat_var15, onvalue=1, offvalue=0, command=check_seats)
-    seat16 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='C4', width=seat_width,
+    seat16 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C4', width=seat_width,
                          height=seat_height, variable=seat_var16, onvalue=1, offvalue=0, command=check_seats)
-    seat17 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='C5', width=seat_width,
+    seat17 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C5', width=seat_width,
                          height=seat_height, variable=seat_var17, onvalue=1, offvalue=0, command=check_seats)
-    seat18 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='C6', width=seat_width,
+    seat18 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C6', width=seat_width,
                          height=seat_height, variable=seat_var18, onvalue=1, offvalue=0, command=check_seats)
-    seat19 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='D1', width=seat_width,
+    seat19 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D1', width=seat_width,
                          height=seat_height, variable=seat_var19, onvalue=1, offvalue=0, command=check_seats)
-    seat20 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='D2', width=seat_width,
+    seat20 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D2', width=seat_width,
                          height=seat_height, variable=seat_var20, onvalue=1, offvalue=0, command=check_seats)
-    seat21 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='D3', width=seat_width,
+    seat21 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D3', width=seat_width,
                          height=seat_height, variable=seat_var21, onvalue=1, offvalue=0, command=check_seats)
-    seat22 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='D4', width=seat_width,
+    seat22 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D4', width=seat_width,
                          height=seat_height, variable=seat_var22, onvalue=1, offvalue=0, command=check_seats)
-    seat23 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='D5',
+    seat23 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D5',
                          width=seat_width, height=seat_height, variable=seat_var23, onvalue=1, offvalue=0, command=check_seats)
-    seat24 = Checkbutton(screen3, activebackground=color, bg=standard, font=seat_font, text='D6',
+    seat24 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D6',
                          width=seat_width, height=seat_height, variable=seat_var24, onvalue=1, offvalue=0, command=check_seats)
 
     # Placing seats in specific locations
