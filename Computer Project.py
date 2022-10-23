@@ -6,6 +6,8 @@ from tkinter import *
 import tkinter
 from tkinter.messagebox import askyesno, showerror
 import csv
+from PIL import Image, ImageTk
+
 
 # Creating output window and setting attributes:
 window = Tk()
@@ -107,9 +109,11 @@ def screen1():  # Movie selection
     number_label.place(x=30, y=425)
     moviechoose_label.place(x=835, y=75)
 
-    # def PICTURE(filepath):  # Functions tp create radiobutton - Not working for now
-    #     pic = PhotoImage(master=screen1, file=filepath)
-    #     return pic
+    with open('Movies.csv', 'r') as f:  # Reading from movies.csv file
+        csv_reader = csv.reader(f)
+        movies_list = []
+        for i in csv_reader:
+            movies_list.append(i)
 
     # Function to define and place radiobuttons:
     def RADIOBUTTON(t, xloc, yloc, pichandle, activebg='white', activefg='#1E66DA', f=('ComicSans', '25'), var=film_var):
@@ -117,28 +121,27 @@ def screen1():  # Movie selection
         button = Radiobutton(screen1, activebackground=activebg,
                              activeforeground=activefg, font=f, image=pichandle, variable=var, value=t)
         button.place(x=xloc, y=yloc)
-    global thumbnail1, thumbnail2, thumbnail3, thumbnail4, thumbnail5, thumbnail6
+    global poster1, poster2, poster3, poster4, poster5, poster6
+
+    def PICTURE(filepath):  # Functions to create image objects
+        image = Image.open(filepath)
+        img = image.resize((170, 240))
+        return ImageTk.PhotoImage(img)
 
     # Creating small size images from files:
-    thumbnail1 = PhotoImage(master=screen1, file='1. BlackAdam (Small).png')
-    thumbnail2 = PhotoImage(master=screen1, file='2. 777_Charlie (Small).png')
-    thumbnail3 = PhotoImage(master=screen1, file='3. RRR (Small).png')
-    thumbnail4 = PhotoImage(master=screen1, file='4. PS1 (Small).png')
-    thumbnail5 = PhotoImage(master=screen1, file='5. Drishyam_2 (Small).png')
-    thumbnail6 = PhotoImage(master=screen1, file='6. Vikram_Vedha (Small).png')
+    poster1 = PICTURE('1. BlackAdam.png')
+    poster2 = PICTURE('2. 777_Charlie.png')
+    poster3 = PICTURE('3. RRR.png')
+    poster4 = PICTURE('4. PS1.png')
+    poster5 = PICTURE('5. Drishyam_2.png')
+    poster6 = PICTURE('6. Vikram_Vedha.png')
 
-    with open('Movies.csv', 'r') as f:  # Reading from movies.csv file
-        csv_reader = csv.reader(f)
-        movies_list = []
-        for i in csv_reader:
-            movies_list.append(i)
-
-    RADIOBUTTON(movies_list[1][1], 600, 150, thumbnail1)
-    RADIOBUTTON(movies_list[2][1], 900, 150, thumbnail2)
-    RADIOBUTTON(movies_list[3][1], 1200, 150, thumbnail3)
-    RADIOBUTTON(movies_list[4][1], 600, 450, thumbnail4)
-    RADIOBUTTON(movies_list[5][1], 900, 450, thumbnail5)
-    RADIOBUTTON(movies_list[6][1], 1200, 450, thumbnail6)
+    RADIOBUTTON(movies_list[1][1], 600, 150, poster1)
+    RADIOBUTTON(movies_list[2][1], 900, 150, poster2)
+    RADIOBUTTON(movies_list[3][1], 1200, 150, poster3)
+    RADIOBUTTON(movies_list[4][1], 600, 450, poster4)
+    RADIOBUTTON(movies_list[5][1], 900, 450, poster5)
+    RADIOBUTTON(movies_list[6][1], 1200, 450, poster6)
 
     # Displaying other buttons and setting respective attributes
     input_box = Entry(screen1, background='white',
@@ -243,7 +246,7 @@ def screen2():  # Movie details screen
         back_button.place(x=25, y=755)
 
 
-def screen3():  # Seats allotment screen
+def screen3():  # Seats selection screen
     global screen3
     screen3 = Toplevel()
     screen3.title('Seat selection')
