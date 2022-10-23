@@ -57,10 +57,10 @@ seat_var37 = IntVar()
 seat_var38 = IntVar()
 seat_var39 = IntVar()
 gold = '#FFD700'
-standard = '#00A1FF'
+blue = '#00A1FF'
+green = '#00FF00'
 main_font = ('Helvetica', 25)
 small_font = ('Helvetica', 20)
-color = '#00FF00'
 seat_width = 4
 seat_height = 2
 
@@ -269,53 +269,53 @@ def screen3():  # Seats selection screen
 
     # Defining properties and values for seats
     global seat1, seat2, seat3, seat4, seat5, seat6, seat7, seat8, seat9, seat9, seat9, seat9, seat9, seat10, seat11, seat12, seat13, seat14, seat15, seat16, seat17, seat18, seat19, seat20, seat21, seat22, seat23, seat24, seat25, seat26, seat27, seat28, seat29, seat30, seat31, seat32, seat33, seat34, seat35, seat36, seat37, seat38, seat39
-    seat1 = Checkbutton(screen3, activebackground=color,  bg=gold, font=main_font, text='A1',
+    seat1 = Checkbutton(screen3, activebackground=green,  bg=gold, font=main_font, text='A1',
                         width=seat_width, height=seat_height, variable=seat_var1, onvalue=1, offvalue=0, command=check_seats)
-    seat2 = Checkbutton(screen3, activebackground=color, bg=gold, font=main_font, text='A2', width=seat_width,
+    seat2 = Checkbutton(screen3, activebackground=green, bg=gold, font=main_font, text='A2', width=seat_width,
                         height=seat_height, variable=seat_var2, onvalue=1, offvalue=0, command=check_seats)
-    seat3 = Checkbutton(screen3, activebackground=color, bg=gold, font=main_font, text='A3', width=seat_width,
+    seat3 = Checkbutton(screen3, activebackground=green, bg=gold, font=main_font, text='A3', width=seat_width,
                         height=seat_height, variable=seat_var3, onvalue=1, offvalue=0, command=check_seats)
-    seat4 = Checkbutton(screen3, activebackground=color, bg=gold, font=main_font, text='A4', width=seat_width,
+    seat4 = Checkbutton(screen3, activebackground=green, bg=gold, font=main_font, text='A4', width=seat_width,
                         height=seat_height, variable=seat_var4, onvalue=1, offvalue=0, command=check_seats)
-    seat5 = Checkbutton(screen3, activebackground=color, bg=gold, font=main_font, text='A5', width=seat_width,
+    seat5 = Checkbutton(screen3, activebackground=green, bg=gold, font=main_font, text='A5', width=seat_width,
                         height=seat_height, variable=seat_var5, onvalue=1, offvalue=0, command=check_seats)
-    seat6 = Checkbutton(screen3, activebackground=color, bg=gold, font=main_font, text='A6', width=seat_width,
+    seat6 = Checkbutton(screen3, activebackground=green, bg=gold, font=main_font, text='A6', width=seat_width,
                         height=seat_height, variable=seat_var6, onvalue=1, offvalue=0, command=check_seats)
-    seat7 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B1', width=seat_width,
+    seat7 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='B1', width=seat_width,
                         height=seat_height, variable=seat_var7, onvalue=1, offvalue=0, command=check_seats)
-    seat8 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B2', width=seat_width,
+    seat8 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='B2', width=seat_width,
                         height=seat_height, variable=seat_var8, onvalue=1, offvalue=0, command=check_seats)
-    seat9 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B3', width=seat_width,
+    seat9 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='B3', width=seat_width,
                         height=seat_height, variable=seat_var9, onvalue=1, offvalue=0, command=check_seats)
-    seat10 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B4',
+    seat10 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='B4',
                          width=seat_width, height=seat_height, variable=seat_var10, onvalue=1, offvalue=0, command=check_seats)
-    seat11 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B5',
+    seat11 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='B5',
                          width=seat_width, height=seat_height, variable=seat_var11, onvalue=1, offvalue=0, command=check_seats)
-    seat12 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='B6',
+    seat12 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='B6',
                          width=seat_width, height=seat_height, variable=seat_var12, onvalue=1, offvalue=0, command=check_seats)
-    seat13 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C1',
+    seat13 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='C1',
                          width=seat_width, height=seat_height, variable=seat_var13, onvalue=1, offvalue=0, command=check_seats)
-    seat14 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C2', width=seat_width,
+    seat14 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='C2', width=seat_width,
                          height=seat_height, variable=seat_var14, onvalue=1, offvalue=0, command=check_seats)
-    seat15 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C3', width=seat_width,
+    seat15 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='C3', width=seat_width,
                          height=seat_height, variable=seat_var15, onvalue=1, offvalue=0, command=check_seats)
-    seat16 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C4', width=seat_width,
+    seat16 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='C4', width=seat_width,
                          height=seat_height, variable=seat_var16, onvalue=1, offvalue=0, command=check_seats)
-    seat17 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C5', width=seat_width,
+    seat17 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='C5', width=seat_width,
                          height=seat_height, variable=seat_var17, onvalue=1, offvalue=0, command=check_seats)
-    seat18 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='C6', width=seat_width,
+    seat18 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='C6', width=seat_width,
                          height=seat_height, variable=seat_var18, onvalue=1, offvalue=0, command=check_seats)
-    seat19 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D1', width=seat_width,
+    seat19 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='D1', width=seat_width,
                          height=seat_height, variable=seat_var19, onvalue=1, offvalue=0, command=check_seats)
-    seat20 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D2', width=seat_width,
+    seat20 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='D2', width=seat_width,
                          height=seat_height, variable=seat_var20, onvalue=1, offvalue=0, command=check_seats)
-    seat21 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D3', width=seat_width,
+    seat21 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='D3', width=seat_width,
                          height=seat_height, variable=seat_var21, onvalue=1, offvalue=0, command=check_seats)
-    seat22 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D4', width=seat_width,
+    seat22 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='D4', width=seat_width,
                          height=seat_height, variable=seat_var22, onvalue=1, offvalue=0, command=check_seats)
-    seat23 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D5',
+    seat23 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='D5',
                          width=seat_width, height=seat_height, variable=seat_var23, onvalue=1, offvalue=0, command=check_seats)
-    seat24 = Checkbutton(screen3, activebackground=color, bg=standard, font=main_font, text='D6',
+    seat24 = Checkbutton(screen3, activebackground=green, bg=blue, font=main_font, text='D6',
                          width=seat_width, height=seat_height, variable=seat_var24, onvalue=1, offvalue=0, command=check_seats)
 
     # Placing seats in specific locations
