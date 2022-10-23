@@ -65,7 +65,7 @@ seat_width = 4
 seat_height = 2
 
 # Setting background:
-bg = tkinter.PhotoImage(file='Backdrop.png')
+bg = PhotoImage(file='Backdrop.png')
 img = Label(window, i=bg)
 img.place(x=-2, y=-2)
 
@@ -86,7 +86,14 @@ def thankyou():  # Function to be displayed when booking is done
 #         file.write(f'{dict1}\n')
 
 
-def screen1():  # Movie selection
+def PICTURE(filepath, x_size=170, y_size=240):  # Functions to create image objects
+    image = Image.open(filepath)
+    img = image.resize((x_size, y_size))
+    screen1.img = img
+    return ImageTk.PhotoImage(img)
+
+
+def screen_1():  # Movie selection
     global screen1
     screen1 = Toplevel()
     screen1.title('Movie selection')
@@ -123,18 +130,13 @@ def screen1():  # Movie selection
         button.place(x=xloc, y=yloc)
     global poster1, poster2, poster3, poster4, poster5, poster6
 
-    def PICTURE(filepath):  # Functions to create image objects
-        image = Image.open(filepath)
-        img = image.resize((170, 240))
-        return ImageTk.PhotoImage(img)
-
     # Creating small size images from files:
-    poster1 = PICTURE('1. BlackAdam.png')
-    poster2 = PICTURE('2. 777_Charlie.png')
-    poster3 = PICTURE('3. RRR.png')
-    poster4 = PICTURE('4. PS1.png')
-    poster5 = PICTURE('5. Drishyam_2.png')
-    poster6 = PICTURE('6. Vikram_Vedha.png')
+    poster1 = PICTURE('Black Adam.png')
+    poster2 = PICTURE('777 Charlie.png')
+    poster3 = PICTURE('RRR.png')
+    poster4 = PICTURE('Ponniyin Selvan 1.png')
+    poster5 = PICTURE('Drishyam 2.png')
+    poster6 = PICTURE('Vikram Vedha.png')
 
     RADIOBUTTON(movies_list[1][1], 600, 150, poster1)
     RADIOBUTTON(movies_list[2][1], 900, 150, poster2)
@@ -157,11 +159,11 @@ def screen1():  # Movie selection
     exit_button.place(x=1375, y=755)
 
     proceed_button = Button(screen1, width=10, text='Proceed',
-                            font=('Helvetica', 16), command=screen2)
+                            font=('Helvetica', 16), command=screen_2)
     proceed_button.place(x=700, y=755)
 
 
-def screen2():  # Movie details screen
+def screen_2():  # Movie details screen
     screen2 = Toplevel()
     screen2.title('Movie Details')
     screen2.geometry('1500x800+10+15')
@@ -175,13 +177,12 @@ def screen2():  # Movie details screen
                 break
 
         Heading = Label(screen2, activebackground='black', activeforeground='green',
-                        width=26, height=3, font=('Algerian', 30), text='Seat selection')
+                        width=26, height=3, font=('Algerian', 30), text='Movie Details')
         Heading.place(x=455, y=0)
 
         # To display details:
-        Movie_Name, Language, Release_Date, Runtime_h, Runtime_m, Time, Rating, Cast, Director = k
+        Movie_Name, Language, Release_Date, Runtime_h, Runtime_m, Time, Cast, Director, Rating = k
         Runtime_text = Runtime_h, 'hours,', Runtime_m, 'minutes'
-        print(Runtime_text)
         Movie_Label = Label(master=screen2, text=Movie_Name,
                             font=small_font, anchor=W)
         Language_Label = Label(
@@ -234,19 +235,30 @@ def screen2():  # Movie details screen
         Rating_Heading.place(x=100, y=550)
         Rating_Label.place(x=275, y=550)
 
+        Movie_Name = str(Movie_Name+'.png')
+        poster = PICTURE(Movie_Name, x_size=375, y_size=550)
+        # poster2 = PICTURE('777 Charlie.png')
+        # poster3 = PICTURE('RRR.png')
+        # poster4 = PICTURE('Ponniyin Selvan 1.png')
+        # poster5 = PICTURE('Drishyam 2.png')
+        # poster6 = PICTURE('Vikram Vedha.png')
+        imglabel = Label(screen2, image=poster)
+        imglabel.image = poster
+        imglabel.place(x=1050, y=125)
+
         # Submit and exit buttons:
         exit_button = Button(screen2, text='Exit', width=10,
                              command=closewindow, height=1, font=('Helvetica', 15))
         exit_button.place(x=1375, y=755)
         proceed_button = Button(screen2, width=10, text='Proceed', font=(
-            'Helvetica', 16), command=screen3)
+            'Helvetica', 16), command=screen_3)
         proceed_button.place(x=700, y=755)
         back_button = Button(screen2, width=10, text='Back', font=(
             'Helvetica', 16), command=screen2.destroy)
         back_button.place(x=25, y=755)
 
 
-def screen3():  # Seats selection screen
+def screen_3():  # Seats selection screen
     global screen3
     screen3 = Toplevel()
     screen3.title('Seat selection')
@@ -345,19 +357,19 @@ def screen3():  # Seats selection screen
                          command=closewindow, height=1, font=('Helvetica', 15))
     exit_button.place(x=1375, y=755)
     proceed_button = Button(screen3, width=10, text='Proceed', font=(
-        'Helvetica', 16), command=screen4)
+        'Helvetica', 16), command=screen_4)
     proceed_button.place(x=700, y=755)
     back_button = Button(screen3, width=10, text='Back', font=(
         'Helvetica', 16), command=screen3.destroy)
     back_button.place(x=25, y=755)
 
 
-def screen4():  # Confirming all details
+def screen_4():  # Confirming all details
     pass
 
 
 start_button = Button(window, width=10, text='START',
-                      font=('Helvetica', 16), command=screen1)
+                      font=('Helvetica', 16), command=screen_1)
 start_button.place(x=242, y=200)
 
 # Required command to launch output window
