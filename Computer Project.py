@@ -126,7 +126,7 @@ def screen_1():  # Movie selection
     def RADIOBUTTON(t, xloc, yloc, pichandle, activebg='white', activefg='#1E66DA', f=('ComicSans', '25'), var=film_var):
         global button
         button = Radiobutton(screen1, activebackground=activebg,
-                             activeforeground=activefg, font=f, image=pichandle, variable=var, value=t, borderwidth=3, relief="solid")
+                             activeforeground=activefg, font=f, image=pichandle, variable=var, value=t)
         button.place(x=xloc, y=yloc)
     global poster1, poster2, poster3, poster4, poster5, poster6
 
