@@ -77,14 +77,6 @@ def closewindow():  # Function to close button when exit button is clicked
 def thankyou():  # Function to be displayed when booking is done
     askyesno(title='Thankyou', message='Did you enjoy the booking experience?')
 
-# def add_person():  # Adds a dictionary to a file
-#     with open('Films.csv', 'a+') as file:
-#         dict1 = {}
-#         dict1['Name'] = input_box.get()
-#         dict1['Movie'] = film_var.get()
-#         dict1['Persons'] = people_var.get()
-#         file.write(f'{dict1}\n')
-
 
 def PICTURE(filepath, x_size=170, y_size=240):  # Functions to create image objects
     image = Image.open(filepath)
@@ -138,14 +130,16 @@ def screen_1():  # Movie selectionw
     poster5 = PICTURE('Bheeshma Parvam.png')
     poster6 = PICTURE('Vikram Vedha.png')
 
-    RADIOBUTTON(movies_list[1][1], 600, 150, poster1)
-    RADIOBUTTON(movies_list[2][1], 900, 150, poster2)
-    RADIOBUTTON(movies_list[3][1], 1200, 150, poster3)
-    RADIOBUTTON(movies_list[4][1], 600, 450, poster4)
-    RADIOBUTTON(movies_list[5][1], 900, 450, poster5)
-    RADIOBUTTON(movies_list[6][1], 1200, 450, poster6)
+    RADIOBUTTON(movies_list[1][0], 600, 150, poster1)
+    RADIOBUTTON(movies_list[2][0], 900, 150, poster2)
+    RADIOBUTTON(movies_list[3][0], 1200, 150, poster3)
+    RADIOBUTTON(movies_list[4][0], 600, 450, poster4)
+    RADIOBUTTON(movies_list[5][0], 900, 450, poster5)
+    RADIOBUTTON(movies_list[6][0], 1200, 450, poster6)
 
     # Displaying other buttons and setting respective attributes
+    global input_box
+
     input_box = Entry(screen1, background='white',
                       foreground='black', width=21, font=main_font)
     input_box.place(x=82, y=235)
@@ -172,7 +166,7 @@ def screen_2():  # Movie details screen
     with open('Movies.csv', 'r') as f:
         CSVREADER = csv.reader(f)
         for i in CSVREADER:
-            if i[1] == film_var.get():
+            if i[0] == film_var.get():
                 k = i
                 break
 
@@ -191,15 +185,14 @@ def screen_2():  # Movie details screen
             master=screen2, text=Release_Date, font=small_font, anchor=W)
         Runtime_Label = Label(
             master=screen2, text=Runtime_text, font=small_font, anchor=W)
-        Time_Label = Label(
-            master=screen2, text=Time, font=small_font, anchor=W)
+        Time_Label = Label(master=screen2, text=Time,
+                           font=small_font, anchor=W)
         Cast_Label = Label(master=screen2, text=Cast,
                            font=small_font, anchor=W)
         Director_Label = Label(
             master=screen2, text=Director, font=small_font, anchor=W)
         Rating_Label = Label(master=screen2, text=Rating,
                              font=small_font, anchor=W)
-
         Movie_Heading = Label(master=screen2, text='Movie:',
                               font=small_font, anchor=E)
         Language_Heading = Label(
