@@ -93,7 +93,7 @@ def PICTURE(filepath, x_size=170, y_size=240):  # Functions to create image obje
     return ImageTk.PhotoImage(img)
 
 
-def screen_1():  # Movie selection
+def screen_1():  # Movie selectionw
     global screen1
     screen1 = Toplevel()
     screen1.title('Movie selection')
@@ -178,7 +178,7 @@ def screen_2():  # Movie details screen
 
         Heading = Label(screen2, activebackground='black', activeforeground='green',
                         width=26, height=3, font=('Algerian', 30), text='Movie Details')
-        Heading.place(x=455, y=0)
+        Heading.place(x=420, y=0)
 
         # To display details:
         Movie_Name, Language, Release_Date, Runtime_h, Runtime_m, Time, Cast, Director, Rating = k
@@ -255,6 +255,8 @@ def screen_2():  # Movie details screen
 
 def screen_3():  # Seats selection screen
     global screen3
+    global listm
+    global listn
     screen3 = Toplevel()
     screen3.title('Seat selection')
     screen3.geometry('1500x800+10+15')
@@ -332,7 +334,9 @@ def screen_3():  # Seats selection screen
     list_3 = [seat13, seat14, seat15, seat16, seat17, seat18]
     list_4 = [seat19, seat20, seat21, seat22, seat23, seat24]
     listm = (seat_var1, seat_var2, seat_var3, seat_var4, seat_var5, seat_var6, seat_var7, seat_var8, seat_var9, seat_var10, seat_var11, seat_var12, seat_var13, seat_var14, seat_var15, seat_var16, seat_var17, seat_var18, seat_var19, seat_var20,
-             seat_var21, seat_var22, seat_var23)
+             seat_var21, seat_var22, seat_var23, seat_var24)
+    listn = list_1 + list_2 + list_3 + list_4
+
     xlocation = 375
     ylocation = 150
     mega_list = [list_1, list_2, list_3, list_4]
@@ -360,7 +364,9 @@ def screen_3():  # Seats selection screen
 
 
 def screen_4():  # Confirming all details
-    pass
+    for i in range(len(listm)):
+        if listm[i].get() == 1:
+            listn[i].configure(state=DISABLED)
 
 
 start_button = Button(window, width=10, text='START',
