@@ -3,7 +3,6 @@
 
 # importing required modules
 from tkinter import *
-import tkinter
 from tkinter.messagebox import askyesno, showerror
 import csv
 from PIL import Image, ImageTk
@@ -175,6 +174,7 @@ def screen_2():  # Movie details screen
         Heading.place(x=420, y=0)
 
         # To display details:
+        global Time
         Movie_Name, Language, Release_Date, Runtime_h, Runtime_m, Time, Cast, Director, Rating = k
         Runtime_text = Runtime_h, 'hours,', Runtime_m, 'minutes'
         Movie_Label = Label(master=screen2, text=Movie_Name,
@@ -230,7 +230,7 @@ def screen_2():  # Movie details screen
 
         Movie_Name = str(Movie_Name+'.png')
         poster = PICTURE(Movie_Name, x_size=375, y_size=550)
-        imglabel = Label(screen2, image=poster, borderwidth=3, relief="solid")
+        imglabel = Label(screen2, image=poster, borderwidth=3, relief='solid')
         imglabel.image = poster
         imglabel.place(x=1050, y=125)
 
@@ -360,6 +360,51 @@ def screen_4():  # Confirming all details
     for i in range(len(listm)):
         if listm[i].get() == 1:
             listn[i].configure(state=DISABLED)
+
+    global screen4
+    screen4 = Toplevel()
+    screen4.title('Ticket details')
+    screen4.geometry('1500x800+10+15')
+    screen4.resizable(False, False)
+
+    Heading = Label(screen4, activebackground='black', activeforeground='green',
+                    width=26, height=3, font=('Algerian', 30), text='Booking Confirmed')
+    Heading.place(x=450, y=0)
+
+    username = input_box.get()
+    movie_user = Label(master=screen4, text='User Name: '+username,
+                       font=small_font)
+    movie_user.place(x=100, y=200)
+
+    userchoice = film_var.get()
+    movie_Name = Label(master=screen4, text='Movie name: '+userchoice,
+                       font=small_font)
+    movie_Name.place(x=100, y=275)
+    movie_theater = Label(master=screen4, text='Theatre: '+'NCFE Miniplex',
+                          font=small_font)
+    movie_theater.place(x=100, y=350)
+
+    movie_timing = Label(master=screen4, text='Time: '+Time,
+                         font=small_font)
+    movie_timing.place(x=100, y=425)
+
+    seatno = people_var.get()
+    movie_noofseats = Label(master=screen4, text='Number of tickets: '+str(seatno),
+                            font=small_font)
+    movie_noofseats.place(x=100, y=500)
+
+    confirmation_dialog = Label(master=screen4, text='Congratulations! Your booking has been completed successfully',
+                                font=('Copperplate Gothic Light', 25))
+    confirmation_dialog.place(x=100, y=600)
+
+    # Submit and exit buttons:
+    exit_button = Button(screen4, text='Exit', width=10,
+                         command=closewindow, height=1, font=('Helvetica', 15))
+    exit_button.place(x=1375, y=755)
+
+    back_button = Button(screen4, width=10, text='Back', font=(
+        'Helvetica', 16), command=screen4.destroy)
+    back_button.place(x=25, y=755)
 
 
 start_button = Button(window, width=10, text='START',
