@@ -1,5 +1,5 @@
-Movie,Language,Release date,Runtime,Time, Cast,Director,Rating
-Black Adam,English,October 20th, 2,5,8:00 AM,"Dwayne Johnson, Aldis Hodge, Pierce Brosnan",Jaume Collet-Serra,7.2/10
+Movie,Language,Release date,Runtime_h,Runtime_m,Time, Cast,Director,Rating
+Black Adam,English,October 20th,2,5,8:00 AM,"Dwayne Johnson, Aldis Hodge, Pierce Brosnan",Jaume Collet-Serra,7.2/10
 777 Charlie,Kannada,June 10th,2,16,11:00 AM,"Rakshit Shetty, Charlie, Sangeetha Sringeri",Kiranraj K,8.9/10
 RRR,Telugu,March 25th,3,7,2:00 PM,"N.T. Rama Rao Jr., Ram Charan Teja, Ajay Devgn",S.S. Rajamouli,8.0/10
 Ponniyin Selvan 1,Tamil,September 30th,2,47,5:30 PM,"Vikram, Karthi, Jayam Ravi, Aishwarya Rai Bachchan",Mani Ratnam,8.3/10
