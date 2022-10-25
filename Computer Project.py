@@ -263,7 +263,6 @@ def screen_3():  # Seats selection screen
         if sums > correct:
             showerror('Message', f'Select only {correct} seats')
             screen3.destroy()
-            screen2.destroy()
 
     heading = Label(screen3, activebackground='black', activeforeground='green',
                     width=26, height=3, font=('Algerian', 30), text='Seat selection')
@@ -374,6 +373,11 @@ def screen_4():  # Confirming all details
         if listm[i].get() == 1:
             seatslist.append(superlist[i])
 
+    seat_str = ''
+    for i in seatslist:
+        seat_str += f'{i}, '
+    new_str = seat_str[0:len(seat_str)-2]
+
     Heading = Label(screen4, activebackground='black', activeforeground='green',
                     width=26, height=3, font=('Algerian', 30), text='Booking Confirmed')
     Heading.place(x=450, y=0)
@@ -400,13 +404,13 @@ def screen_4():  # Confirming all details
                             font=small_font)
     movie_noofseats.place(x=100, y=500)
 
-    seats_names = Label(master=screen4, text='Seats: ' + str(seatslist),
+    seats_names = Label(master=screen4, text='Seats: ' + new_str,
                         font=small_font)
     seats_names.place(x=100, y=575)
 
     confirmation_dialog = Label(master=screen4, text='Congratulations! Your booking has been completed successfully',
                                 font=('Copperplate Gothic Light', 25))
-    confirmation_dialog.place(x=100, y=700)
+    confirmation_dialog.place(x=100, y=650)
 
     # Submit and exit buttons:
     exit_button = Button(screen4, text='Exit', width=10,
