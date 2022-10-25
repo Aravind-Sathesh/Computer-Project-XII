@@ -399,7 +399,7 @@ def screen_4():  # Confirming all details
                          font=small_font)
     movie_timing.place(x=100, y=425)
 
-    seatno = people_var.get()
+    seatno = len(seatslist)
     movie_noofseats = Label(master=screen4, text='Number of tickets: '+str(seatno),
                             font=small_font)
     movie_noofseats.place(x=100, y=500)
