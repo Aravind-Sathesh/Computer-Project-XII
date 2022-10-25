@@ -73,10 +73,6 @@ def closewindow():  # Function to close button when exit button is clicked
     window.destroy()
 
 
-def thankyou():  # Function to be displayed when booking is done
-    askyesno(title='Thankyou', message='Did you enjoy the booking experience?')
-
-
 def PICTURE(filepath, x_size=170, y_size=240):  # Functions to create image objects
     image = Image.open(filepath)
     img = image.resize((x_size, y_size))
@@ -85,6 +81,8 @@ def PICTURE(filepath, x_size=170, y_size=240):  # Functions to create image obje
 
 
 def screen_1():  # Movie selectionw
+    start_button.configure(state=DISABLED)
+
     global screen1
     screen1 = Toplevel()
     screen1.title('Movie selection')
@@ -157,6 +155,7 @@ def screen_1():  # Movie selectionw
 
 
 def screen_2():  # Movie details screen
+    global screen2
     screen2 = Toplevel()
     screen2.title('Movie Details')
     screen2.geometry('1500x800+10+15')
@@ -263,7 +262,8 @@ def screen_3():  # Seats selection screen
         correct = people_var.get()
         if sums > correct:
             showerror('Message', f'Select only {correct} seats')
-            screen3.destroy
+            screen3.destroy()
+            screen2.destroy()
 
     heading = Label(screen3, activebackground='black', activeforeground='green',
                     width=26, height=3, font=('Algerian', 30), text='Seat selection')
@@ -321,7 +321,7 @@ def screen_3():  # Seats selection screen
                          width=seat_width, height=seat_height, variable=seat_var24, onvalue=1, offvalue=0, command=check_seats)
 
     # Placing seats in specific locations
-    global listm
+    global listm, listn
     list_1 = [seat1, seat2, seat3, seat4, seat5, seat6]
     list_2 = [seat7, seat8, seat9, seat10, seat11, seat12]
     list_3 = [seat13, seat14, seat15, seat16, seat17, seat18]
@@ -367,6 +367,13 @@ def screen_4():  # Confirming all details
     screen4.geometry('1500x800+10+15')
     screen4.resizable(False, False)
 
+    superlist = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'B1', 'B2', 'B3', 'B4', 'B5',
+                 'B6', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6']
+    seatslist = []
+    for i in range(len(listn)):
+        if listm[i].get() == 1:
+            seatslist.append(superlist[i])
+
     Heading = Label(screen4, activebackground='black', activeforeground='green',
                     width=26, height=3, font=('Algerian', 30), text='Booking Confirmed')
     Heading.place(x=450, y=0)
@@ -393,9 +400,13 @@ def screen_4():  # Confirming all details
                             font=small_font)
     movie_noofseats.place(x=100, y=500)
 
+    seats_names = Label(master=screen4, text='Seats: ' + str(seatslist),
+                        font=small_font)
+    seats_names.place(x=100, y=575)
+
     confirmation_dialog = Label(master=screen4, text='Congratulations! Your booking has been completed successfully',
                                 font=('Copperplate Gothic Light', 25))
-    confirmation_dialog.place(x=100, y=600)
+    confirmation_dialog.place(x=100, y=700)
 
     # Submit and exit buttons:
     exit_button = Button(screen4, text='Exit', width=10,
