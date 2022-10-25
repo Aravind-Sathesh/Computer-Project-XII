@@ -88,6 +88,8 @@ def screen_1():  # Movie selectionw
     screen1.title('Movie selection')
     screen1.geometry('1500x800+10+15')
     screen1.resizable(False, False)
+    a = PhotoImage(file='PopCorn Icon.png')
+    screen1.iconphoto(True, a)
 
     # Defining properties and values for labels
     heading = Label(screen1, width=25, height=1,
@@ -160,6 +162,8 @@ def screen_2():  # Movie details screen
     screen2.title('Movie Details')
     screen2.geometry('1500x800+10+15')
     screen2.resizable(False, False)
+    b = PhotoImage(file='Roll Icon.png')
+    screen2.iconphoto(True, b)
 
     with open('Movies.csv', 'r') as f:
         CSVREADER = csv.reader(f)
@@ -253,6 +257,8 @@ def screen_3():  # Seats selection screen
     screen3.title('Seat selection')
     screen3.geometry('1500x800+10+15')
     screen3.resizable(False, False)
+    c = PhotoImage(file='Ticket Icon.png')
+    screen3.iconphoto(True, c)
 
     def check_seats():  # Function to emsure that the user only selects the number of seats entered in screen 1
         sums = 0
@@ -365,6 +371,8 @@ def screen_4():  # Confirming all details
     screen4.title('Ticket details')
     screen4.geometry('1500x800+10+15')
     screen4.resizable(False, False)
+    d = PhotoImage(file='See Icon.png')
+    screen4.iconphoto(True, d)
 
     superlist = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'B1', 'B2', 'B3', 'B4', 'B5',
                  'B6', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6']
