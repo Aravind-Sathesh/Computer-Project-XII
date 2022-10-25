@@ -113,14 +113,6 @@ def screen_1():  # Movie selectionw
         for i in csv_reader:
             movies_list.append(i)
 
-    # Function to define and place radiobuttons:
-    def RADIOBUTTON(t, xloc, yloc, pichandle, activebg='white', activefg='#1E66DA', f=('ComicSans', '25'), var=film_var):
-        global button
-        button = Radiobutton(screen1, activebackground=activebg,
-                             activeforeground=activefg, font=f, image=pichandle, variable=var, value=t)
-        button.place(x=xloc, y=yloc)
-    global poster1, poster2, poster3, poster4, poster5, poster6
-
     # Creating small size images from files:
     poster1 = PICTURE('Black Adam.png')
     poster2 = PICTURE('777 Charlie.png')
@@ -129,12 +121,24 @@ def screen_1():  # Movie selectionw
     poster5 = PICTURE('Bheeshma Parvam.png')
     poster6 = PICTURE('Vikram Vedha.png')
 
-    RADIOBUTTON(movies_list[1][0], 600, 150, poster1)
-    RADIOBUTTON(movies_list[2][0], 900, 150, poster2)
-    RADIOBUTTON(movies_list[3][0], 1200, 150, poster3)
-    RADIOBUTTON(movies_list[4][0], 600, 450, poster4)
-    RADIOBUTTON(movies_list[5][0], 900, 450, poster5)
-    RADIOBUTTON(movies_list[6][0], 1200, 450, poster6)
+    button1 = Radiobutton(screen1, activebackground='white', activeforeground='black',
+                          image=poster1, variable=film_var, value=movies_list[1][0])
+    button1.place(x=600, y=150)
+    button2 = Radiobutton(screen1, activebackground='white', activeforeground='black',
+                          image=poster2, variable=film_var, value=movies_list[2][0])
+    button2.place(x=900, y=150)
+    button3 = Radiobutton(screen1, activebackground='white', activeforeground='black',
+                          image=poster3, variable=film_var, value=movies_list[3][0])
+    button3.place(x=1200, y=150)
+    button4 = Radiobutton(screen1, activebackground='white', activeforeground='black',
+                          image=poster4, variable=film_var, value=movies_list[4][0])
+    button4.place(x=600, y=450)
+    button5 = Radiobutton(screen1, activebackground='white', activeforeground='black',
+                          image=poster5, variable=film_var, value=movies_list[5][0])
+    button5.place(x=900, y=450)
+    button6 = Radiobutton(screen1, activebackground='white', activeforeground='black',
+                          image=poster6, variable=film_var, value=movies_list[6][0])
+    button6.place(x=1200, y=450)
 
     # Displaying other buttons and setting respective attributes
     global input_box
