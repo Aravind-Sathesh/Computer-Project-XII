@@ -3,7 +3,7 @@
 
 # importing required modules
 from tkinter import *
-from tkinter.messagebox import askyesno, showerror
+from tkinter.messagebox import showerror
 import csv
 from PIL import Image, ImageTk
 
@@ -40,21 +40,6 @@ seat_var21 = IntVar()
 seat_var22 = IntVar()
 seat_var23 = IntVar()
 seat_var24 = IntVar()
-seat_var25 = IntVar()
-seat_var26 = IntVar()
-seat_var27 = IntVar()
-seat_var28 = IntVar()
-seat_var29 = IntVar()
-seat_var30 = IntVar()
-seat_var31 = IntVar()
-seat_var32 = IntVar()
-seat_var33 = IntVar()
-seat_var34 = IntVar()
-seat_var35 = IntVar()
-seat_var36 = IntVar()
-seat_var37 = IntVar()
-seat_var38 = IntVar()
-seat_var39 = IntVar()
 gold = '#FFD700'
 blue = '#00A1FF'
 green = '#00FF00'
