@@ -4,4 +4,4 @@ This is a repository for the Computer project, which is based on python, file ha
 
 Instructions:
 
-Please ensure that image files and .csv file are within the same directry. Otherwise you wont be able to access the files.
+Please ensure that image files and .csv file are within the same directory. Otherwise you wont be able to access the files.
